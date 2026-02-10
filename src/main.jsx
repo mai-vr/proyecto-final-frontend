@@ -7,7 +7,9 @@ import { Chats } from './components/Chats'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Aside />
-    <Chats />
+    <main className='app'>
+      <Aside />
+      <Chats />
+    </main>
   </StrictMode>,
 )

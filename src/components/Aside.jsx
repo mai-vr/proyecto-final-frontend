@@ -14,8 +14,8 @@ const Aside = () => {
                 return
             }
 
-            const data = response.json()
-            console.log(data)
+            const data = await response.json()
+            setUsers(data.users)
 
         } catch (error) {
             console.log(error.message)
@@ -26,23 +26,31 @@ const Aside = () => {
         fetchingData()
     }, [])
 
-    const filteredUsers = users.filter((user) => user.firstName.toLowerCase().includes(search.toLowerCase()))
+    const handleChange = (event) => {
+        setSearch(event.target.value)
+    }
 
+    const filteredUsers = users.filter((user) => user.firstName.toLowerCase().includes(search.toLowerCase()) || user.lastName.toLowerCase().includes(search.toLowerCase()))  
+    
     return (
         <aside>
             <h1>
                 Chat UTN
             </h1>
-            <input type="search" placeholder="Buscar contacto..."  />
+            <input type="search" placeholder="Buscar contacto..." onChange={handleChange} />
             <ul>
                 {
-                    filteredUsers.map((user) => {
-                        <li>
+                    filteredUsers.length === 0 ? <p className="not-found">No se encontraron contactos</p> :
+                    filteredUsers.map((user) => (
+                        <li key={user.id}>
                             <img src={user.image} alt="user profile photo" />
-                            {user.firstName} {user.lastName}
-                            <small>{user.address.country}</small>
+                            <div>
+                                {user.firstName} {user.lastName}
+                                <small>{user.address.country}</small>
+                            </div>
+                            
                         </li>
-                    })
+                    ))
                 }
             </ul>
         </aside>

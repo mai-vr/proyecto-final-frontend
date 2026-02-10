@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --grey-900: #0b1020;
+    --grey-800: #0f1629;
+    --grey-600: #1a2440;
+    --grey-700: #9ea3b0;
+    --grey-500: #dfdfe1;
+    --grey-300: #fefff6;
+    --grey-200: #f1f2f6;
+
+    --blue-500: #0076FA;
+}
+
+.app {
+    height: 100vh;
+    background-color: var(--grey-700);
+    display: flex;
+}
+
+aside {
+    background-color: var(--grey-500);
+    width: 260px;
+    padding: 20px;
+    /* display: flex;
+    flex-direction: column; */
+    gap: 0.8rem;
+    overflow-y: auto; 
+}
