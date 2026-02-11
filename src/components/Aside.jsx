@@ -41,7 +41,7 @@ const Aside = ({setActiveContact}) => {
             <h1>
                 Chat UTN
             </h1>
-            <input type="search" placeholder="Buscar contacto..." onChange={handleChange} />
+            <input type="search" placeholder="Search contacts..." onChange={handleChange} />
             <ul>
                 {
                     filteredUsers.length === 0 ? <p className="not-found">No se encontraron contactos</p> :

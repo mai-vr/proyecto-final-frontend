@@ -10,9 +10,9 @@
     --grey-800: #0f1629;
     --grey-600: #1a2440;
     --grey-700: #9ea3b0;
-    --grey-500: #dfdfe1;
-    --grey-300: #fefff6;
-    --grey-200: #f1f2f6;
+    --grey-500: #DEDEDE;
+    --grey-300: #F2F2F2;
+    --grey-200: #FEFEFE;
 
     --blue-500: #0076FA;
 
@@ -21,18 +21,15 @@
 
 .app {
     height: 100vh;
-    background-color: var(--grey-700);
     display: flex;
 }
 
 /* Aside styles */
 
 aside {
-    background-color: var(--grey-500);
+    background-color: var(--grey-300);
     width: 260px;
     padding: 10px;
-    /* display: flex;
-    flex-direction: column; */
     gap: 0.8rem;
     overflow-y: auto; 
 }
@@ -41,6 +38,7 @@ aside h1 {
     font-size: 32px;
     margin-bottom: 10px;
     font-weight: 800;
+    color: var(--grey-800);
 }
 
 aside input {
@@ -73,6 +71,8 @@ aside ul li {
     padding: 10px 5px;
     text-transform: capitalize;
     font-weight: 500;
+    color: var(--grey-800);
+    transition: all 0.2s;
 }
 
 aside ul li small {
@@ -102,17 +102,16 @@ li small{
     flex-direction: column;
     flex: 1;
     background-color: var(--grey-200);
-    overflow: auto;
 }
 
 .chat header {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    background-color: var(--blue-500);
-    color: white;
+    background-color: white;
+    color: var(--grey-800);
     padding: 13px;
-    border-bottom: 2px solid var(--grey-500);
+    border-bottom: 1.5px solid var(--grey-500);
 }
 
 .chat header h2 {
@@ -121,7 +120,7 @@ li small{
 
 .chat header p {
     font-weight: 300;
-    color: var(--grey-500);
+    color: var(--grey-700);
 }
 
 .chat-body {
@@ -130,6 +129,8 @@ li small{
     flex: 1;
     font-size: 17px;
     gap: 1rem;
+    padding: 10px;
+    overflow: auto;
 }
 
 .message {
@@ -156,9 +157,10 @@ li small{
 }
 
 .chat-input {
-    padding: 15px;
+    padding: 10px;
     display: flex;
     gap: 0.3rem;
+    background-color: var(--grey-300);
 }
 
 .chat-input input {

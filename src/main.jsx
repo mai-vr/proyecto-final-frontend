@@ -9,10 +9,10 @@ const SelectedContact = () => {
   const currentTime = new Date()
 
   const defaultUser = {
-            firstName: 'Emily',
-            lastName: 'Stone', 
-            country: 'England',
-            time: currentTime.getHours() + currentTime.getMinutes()
+    firstName: 'Emily',
+    lastName: 'Johnson', 
+    country: 'England',
+    time: currentTime.getHours() + currentTime.getMinutes()
   }
 
   const [activeContact, setActiveContact] = useState(defaultUser)
