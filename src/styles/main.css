@@ -25,6 +25,8 @@
     display: flex;
 }
 
+/* Aside styles */
+
 aside {
     background-color: var(--grey-500);
     width: 260px;
@@ -61,13 +63,14 @@ aside ul {
     list-style: none;
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
 }
 
 aside ul li {
     display: flex;
     align-items: center;
     border-radius: 10px;
-    padding: 0px 0px 15px 5px; 
+    padding: 10px 0px;
     text-transform: capitalize;
     font-weight: 500;
 }
@@ -91,4 +94,94 @@ aside ul li:hover{
 
 li small{
     display: block;
+}
+
+/* Chat styles */
+.chat {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: var(--grey-200);
+    overflow: auto;
+}
+
+.chat header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    background-color: var(--blue-500);
+    color: white;
+    padding: 13px;
+    border-bottom: 2px solid var(--grey-500);
+}
+
+.chat header h2 {
+    font-size: 25px;
+}
+
+.chat header p {
+    font-weight: 300;
+    color: var(--grey-500);
+}
+
+.chat-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-size: 17px;
+    gap: 1rem;
+}
+
+.message {
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 4px 1px 36px -5px rgba(0,0,0,0.25);
+}
+
+.message.me {
+    background-color: var(--blue-500);
+    color: white;
+    align-self: end;
+}
+
+.message.received {
+    background-color: var(--grey-500);
+}
+
+.timestamp {
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: end;
+}
+
+.chat-input {
+    padding: 15px;
+    display: flex;
+    gap: 0.3rem;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 7px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.chat-input button {
+    width: 35px;
+    padding: 7px;
+    border-radius: 50%;
+    background-color: var(--blue-500);
+    border: 1px solid var(--blue-500);
+    transition: all 0.1s ease-in;
+}
+
+.chat-input button svg {
+    width: 100%;
+}
+
+.chat-input button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
