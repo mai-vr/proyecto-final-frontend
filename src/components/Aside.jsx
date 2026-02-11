@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const Aside = () => {
+const Aside = (setActiveContact) => {
 
     const [users, setUsers] = useState([])
     const [search, setSearch] = useState("")
@@ -32,6 +32,10 @@ const Aside = () => {
 
     const filteredUsers = users.filter((user) => user.firstName.toLowerCase().includes(search.toLowerCase()) || user.lastName.toLowerCase().includes(search.toLowerCase()))  
     
+    const handleActiveContact = (user) => {
+        setActiveContact(user.firstName + user.lastName)
+    }
+
     return (
         <aside>
             <h1>
@@ -44,7 +48,7 @@ const Aside = () => {
                     filteredUsers.map((user) => (
                         <li key={user.id}>
                             <img src={user.image} alt="user profile photo" />
-                            <div>
+                            <div onClick={handleActiveContact(user)}>
                                 {user.firstName} {user.lastName}
                                 <small>{user.address.country}</small>
                             </div>
