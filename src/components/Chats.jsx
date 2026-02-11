@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { messages as mockMessages } from '../services/mockApi'
 
-const Chats = () =>{
+const Chats = ({contact}) =>{
 
     const [text, setText] = useState("")
     const [messages, setMessages] = useState(mockMessages)
@@ -40,7 +40,7 @@ const Chats = () =>{
         <section className="chat">
             <header>
                 <h2>
-                    Nombre Apellido
+                    {contact.firstName} {contact.lastName}
                 </h2>
                 <p>
                     Última conexión: 1 minuto
