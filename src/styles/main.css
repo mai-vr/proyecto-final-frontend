@@ -14,6 +14,8 @@
     --grey-200: #f1f2f6;
 
     --blue-500: #0076FA;
+
+    --primary-font: "Roboto", sans-serif;
 }
 
 .app {
@@ -30,4 +32,49 @@ aside {
     flex-direction: column; */
     gap: 0.8rem;
     overflow-y: auto; 
+}
+
+aside input {
+    display: block;
+    width: 100%;
+    background-color: var(--grey-300);
+    padding: 7px;
+    border-radius: 10px;
+    border: 1px solid var(--grey-300);
+    margin-bottom: 1.5rem;
+}
+
+.not-found {
+    font-size: 15px;
+    text-align: center;
+    color: var(--grey-700);
+}
+
+aside ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+aside ul li {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0px 0px 15px 5px; 
+    text-transform: capitalize;
+}
+
+aside ul li img {
+    border-radius: 50%;
+    width: 40px;
+}
+
+aside ul li:hover{
+    cursor: pointer;
+    background-color: var(--blue-500);
+    color: white;
+}
+
+li small{
+    display: block;
 }
