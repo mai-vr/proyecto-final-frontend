@@ -6,7 +6,16 @@ import { Chats } from './components/Chats'
 import { useState } from 'react'
 
 const SelectedContact = () => {
-  const [activeContact, setActiveContact] = useState("")
+  const currentTime = new Date()
+
+  const defaultUser = {
+            firstName: 'Emily',
+            lastName: 'Stone', 
+            country: 'England',
+            time: currentTime.getHours() + currentTime.getMinutes()
+  }
+
+  const [activeContact, setActiveContact] = useState(defaultUser)
   return (
     <>
       <Aside setActiveContact={setActiveContact}/>

@@ -33,20 +33,7 @@ const Aside = ({setActiveContact}) => {
     const filteredUsers = users.filter((user) => user.firstName.toLowerCase().includes(search.toLowerCase()) || user.lastName.toLowerCase().includes(search.toLowerCase()))  
     
     const handleActiveContact = (user) => {
-        const currentTime = new Date()
-
-        const defaultUser = {
-            firstName: 'Emily',
-            lastName: 'Stone', 
-            country: 'England',
-            time: currentTime.getHours() + currentTime.getMinutes()
-        }
-
-        if (user === undefined) {
-            setActiveContact(defaultUser)
-        } else {
-            setActiveContact(user)
-        }
+        setActiveContact(user)
     }
 
     return (
