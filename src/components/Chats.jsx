@@ -25,6 +25,9 @@ const Chats = ({contact}) =>{
         }
 
         setMessages([...messages, newMesssage]) // Mantener los viejos mensajes y agregar los nuevos.
+        
+        localStorage.setItem('messages', JSON.stringify(messages))
+
         setText("") // Limpiar el input
     }
 
@@ -53,7 +56,7 @@ const Chats = ({contact}) =>{
                         <div key={message.id} className={`message ${message.author === 'me' ? 'me' : 'received'}`}>
                             <p>
                                 {
-                                    message.author === 'me' ? 'Me' : message.author = contact.firstName
+                                    message.author === 'me' ? 'Me' : contact.firstName
                                 }: {message.text}
                             </p>
                             <p className="timestamp">
