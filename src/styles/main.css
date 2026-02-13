@@ -15,6 +15,7 @@
     --grey-200: #FEFEFE;
 
     --blue-500: #0076FA;
+    --blue-300: #00ABE8;
 
     --primary-font: "Roboto", sans-serif;
 }
@@ -88,7 +89,7 @@ aside ul li img {
 
 aside ul li:hover{
     cursor: pointer;
-    background-color: var(--blue-500);
+    background: linear-gradient(var(--blue-500), var(--blue-300));
     color: white;
 }
 
@@ -141,7 +142,7 @@ li small{
 }
 
 .message.me {
-    background-color: var(--blue-500);
+    background: linear-gradient(var(--blue-500), var(--blue-300));
     color: white;
     align-self: end;
 }

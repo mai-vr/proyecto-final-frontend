@@ -1,33 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/main.css'
-import { Aside } from './components/Aside'
-import { Chats } from './components/Chats'
-import { useState } from 'react'
-
-const SelectedContact = () => {
-  const currentTime = new Date()
-
-  const defaultUser = {
-    firstName: 'Emily',
-    lastName: 'Johnson', 
-    country: 'England',
-    time: currentTime.getHours() + currentTime.getMinutes()
-  }
-
-  const [activeContact, setActiveContact] = useState(defaultUser)
-  return (
-    <>
-      <Aside setActiveContact={setActiveContact}/>
-      <Chats contact={activeContact}/>
-    </>
-  )
-}
+import { App } from './components/App'
+import { ChatProvider } from './context/ChatContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <main className='app'>
-      <SelectedContact />
-    </main>
+    <ChatProvider> 
+      {/* El contexto comparte los valores globales que luego app comunicará a 'aside' y 'chats' */}
+      <App/> 
+    </ChatProvider>
   </StrictMode>,
 )
