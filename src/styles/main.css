@@ -17,6 +17,8 @@
     --blue-500: #0076FA;
     --blue-300: #00ABE8;
 
+    --green-300: #008000;
+
     --primary-font: "Roboto", sans-serif;
 }
 
@@ -30,7 +32,7 @@
 aside {
     background-color: var(--grey-300);
     width: 260px;
-    padding: 10px;
+    padding: 15px;
     gap: 0.8rem;
     overflow-y: auto; 
 }
@@ -50,6 +52,10 @@ aside input {
     border-radius: 10px;
     border: 1px solid var(--grey-300);
     margin-bottom: 1.5rem;
+}
+
+aside input:focus {
+    outline: 1.5px solid var(--blue-500);
 }
 
 .not-found {
@@ -83,7 +89,7 @@ aside ul li small {
 
 aside ul li img {
     border-radius: 50%;
-    width: 40px;
+    width: 50px;
     margin-right: 10px;
 }
 
@@ -122,6 +128,22 @@ li small{
 .chat header p {
     font-weight: 300;
     color: var(--grey-700);
+}
+
+.chat header p.online-chat {
+    color: var(--green-300);
+}
+
+.empty-chat-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.empty-chat {
+    color: var(--grey-700);
+    text-align: center;
 }
 
 .chat-body {
@@ -169,6 +191,10 @@ li small{
     padding: 7px;
     border-radius: 10px;
     border: 1px solid white;
+}
+
+.chat-input input:focus {
+    outline: 2px solid var(--blue-300);
 }
 
 .chat-input button {
