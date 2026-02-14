@@ -8,7 +8,7 @@ const Chat = () => {
 
     const chatBodyRef = useRef(null) // Referencia para mostrar siempre el último mensaje.
 
-    const {selectedUser, handleNewMessages} = useContext(ChatContext)
+    const {selectedUser, handleNewMessages } = useContext(ChatContext)
 
     // Manipular el input.
     const handleChangeText = (event) => {
@@ -31,10 +31,10 @@ const Chat = () => {
         const currentTime = new Date()
 
         const newMessage = {
-            id: selectedUser.messages.length + 1,  
+            // id: selectedUser.messages.length + 1,  
             author: "me",
+            text: text,
             time: currentTime.getHours() + ":" + currentTime.getMinutes(),
-            text: text 
         }
 
         handleNewMessages(newMessage)
@@ -87,8 +87,8 @@ const Chat = () => {
                 <input type="text" placeholder="Escribe un mensaje..."  onChange={handleChangeText} onKeyDown={handleKeyDown} value={text}/> 
                 <button onClick={sendMessage}>
                     {
-                        text === "" ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M9 5a3 3 0 0 1 3-3h0a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h0a3 3 0 0 1-3-3z"/><path d="M5 10a7 7 0 0 0 14 0M8 21h8m-4-4v4"/></g></svg> :
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14L21 3m0 0l-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1z"/></svg>
+                        text === "" ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="#ffffff"><path d="M9 5a3 3 0 0 1 3-3h0a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h0a3 3 0 0 1-3-3z"/><path d="M5 10a7 7 0 0 0 14 0M8 21h8m-4-4v4"/></g></svg> :
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" d="M10 14L21 3m0 0l-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1z"/></svg>
                     }
                 </button>
             </div>

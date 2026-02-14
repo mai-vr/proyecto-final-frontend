@@ -26,6 +26,7 @@ const Aside = () => {
         <aside>
             <h1>Chat UTN</h1>
             <input type="search" placeholder="Buscar contactos..." onChange={handleChange}/>
+            <hr />
             <ul>
                 {
                     filteredUsers.length === 0 ? <p className='not-found'>No hay contactos</p> :

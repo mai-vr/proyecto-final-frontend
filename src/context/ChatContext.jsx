@@ -5,10 +5,9 @@ const ChatContext = createContext()
 
 // Quiero que toda la app conozca los contactos.
 const ChatProvider = ({ children }) => {
-    const userMessagesInLS = JSON.parse(localStorage.getItem('messages'))
 
     const [users, setUsers] = useState(mockUsers)
-    const [selectedUser, setSelectedUser] = useState(userMessagesInLS)
+    const [selectedUser, setSelectedUser] = useState(null)
 
     // const [messages, setMessages] = useState(mockUsers.messages)
 
@@ -22,12 +21,7 @@ const ChatProvider = ({ children }) => {
             ...selectedUser,
             messages: [...selectedUser.messages, newM]
         })
-        
     }
-
-    useEffect(() => {
-        localStorage.setItem('messages', JSON.stringify(selectedUser))
-    }, [handleNewMessages])
 
     return (
         <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser }}> 

@@ -6,22 +6,37 @@
 }
 
 :root {
-    --grey-900: #0b1020;
-    --grey-800: #0f1629;
-    --grey-600: #1a2440;
-    --grey-700: #9ea3b0;
-    --grey-500: #DEDEDE;
-    --grey-300: #F2F2F2;
-    --grey-200: #FEFEFE;
+    --dark-900: #050816;
+    --dark-800: #0B0F2A;
+    --dark-700: #121736;
+    --dark-600: #1B1F45;
 
-    --blue-500: #0076FA;
-    --blue-300: #00ABE8;
+    --violet-500: #7B5CFF;
+    --violet-400: #9B6DFF;
+    --violet-300: #C084FC;
+
+    --indigo-500: #5C6CFF;
+    --indigo-400: #7FA0FF;
+    
+    --grey-200:  #B8BEDA;
+    --grey-100:  #F5F7FF;
 
     --green-300: #008000;
 
     --primary-font: "Roboto", sans-serif;
 }
 
+/* Estilos para la barra del scroll */
+::-webkit-scrollbar {
+  width: 5px;                           
+}
+
+::-webkit-scrollbar-thumb { 
+  background: linear-gradient(var(--violet-500), var(--indigo-500));             
+  border-radius: 20px;  
+}
+
+/*Estilos de la app general*/
 .app {
     height: 100vh;
     display: flex;
@@ -30,7 +45,7 @@
 /* Aside styles */
 
 aside {
-    background-color: var(--grey-300);
+    background-color: var(--dark-900);
     width: 260px;
     padding: 15px;
     gap: 0.8rem;
@@ -41,27 +56,33 @@ aside h1 {
     font-size: 32px;
     margin-bottom: 10px;
     font-weight: 800;
-    color: var(--grey-800);
+    color: var(--grey-100);
 }
 
 aside input {
     display: block;
     width: 100%;
-    background-color: white;
+    background-color: var(--grey-100);
     padding: 7px;
     border-radius: 10px;
-    border: 1px solid var(--grey-300);
+    border: 1px solid var(--grey-200);
     margin-bottom: 1.5rem;
 }
 
 aside input:focus {
-    outline: 1.5px solid var(--blue-500);
+    outline: 1.5px solid var(--violet-500);
+}
+
+aside hr {
+    margin-bottom: 0.3rem;
+    background-color: var(--grey-200);
+    height: 2px;
 }
 
 .not-found {
     font-size: 15px;
     text-align: center;
-    color: var(--grey-700);
+    color: var(--grey-200);
 }
 
 aside ul {
@@ -78,7 +99,7 @@ aside ul li {
     padding: 10px 5px;
     text-transform: capitalize;
     font-weight: 500;
-    color: var(--grey-800);
+    color: var(--grey-100);
     transition: all 0.2s;
 }
 
@@ -95,8 +116,7 @@ aside ul li img {
 
 aside ul li:hover{
     cursor: pointer;
-    background: linear-gradient(var(--blue-500), var(--blue-300));
-    color: white;
+    background: linear-gradient(135deg, var(--violet-500), var(--indigo-400)); 
 }
 
 li small{
@@ -108,22 +128,21 @@ li small{
     display: flex;
     flex-direction: column;
     flex: 1;
-    background-color: var(--grey-200);
+    background-color: var(--dark-800);
 }
 
 .chat header {
     display: flex;
     align-items: center;
     gap: 1.3rem;
-    background-color: white;
-    color: var(--grey-800);
-    padding: 7px;
-    border-bottom: 1.5px solid var(--grey-500);
+    background-color: var(--dark-900);
+    color: var(--grey-100);
+    padding: 7px 7px 7px 20px;
+    /* border-bottom: 1.5px solid var(--violet-500); */
 }
 
 .chat header img {
     width: 65px;
-    margin-left: 0.8rem;
     border-radius: 50%;
 }
 
@@ -133,7 +152,7 @@ li small{
 
 .chat header p {
     font-weight: 300;
-    color: var(--grey-700);
+    color: var(--grey-200);
 }
 
 .chat header p.online-chat {
@@ -145,10 +164,11 @@ li small{
     align-items: center;
     justify-content: center;
     flex: 1;
+    background-color: var(--dark-800);
 }
 
 .empty-chat {
-    color: var(--grey-700);
+    color: var(--grey-200);
     text-align: center;
 }
 
@@ -167,16 +187,18 @@ li small{
     padding: 10px;
     border-radius: 10px;
     box-shadow: 4px 1px 36px -5px rgba(0,0,0,0.25);
+    overflow-wrap: break-word;
 }
 
 .message.me {
-    background: linear-gradient(var(--blue-500), var(--blue-300));
-    color: white;
+    background: linear-gradient(135deg, var(--violet-500), var(--indigo-400)); 
+    color: var(--grey-100);
     align-self: end;
 }
 
 .message.received {
-    background-color: var(--grey-500);
+    color: var(--dark-600);
+    background-color: var(--grey-200);
 }
 
 .timestamp {
@@ -189,26 +211,28 @@ li small{
     padding: 10px;
     display: flex;
     gap: 0.3rem;
-    background-color: var(--grey-300);
+    background-color: var(--dark-600);
 }
 
 .chat-input input {
     flex: 1;
     padding: 7px;
     border-radius: 10px;
-    border: 1px solid white;
+    background-color: var(--dark-800);
+    color: var(--grey-100);
+    border: 1px solid var(--dark-800);
 }
 
 .chat-input input:focus {
-    outline: 2px solid var(--blue-300);
+    outline: 2px solid var(--violet-300);
 }
 
 .chat-input button {
     width: 35px;
     padding: 7px;
     border-radius: 50%;
-    background-color: var(--blue-500);
-    border: 1px solid var(--blue-500);
+    background-color: var(--violet-500);
+    border: 1px solid var(--violet-500);
     transition: all 0.1s ease-in;
 }
 
