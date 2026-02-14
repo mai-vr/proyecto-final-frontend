@@ -31,7 +31,6 @@ const Aside = () => {
                     filteredUsers.length === 0 ? <p className='not-found'>No hay contactos</p> :
                     filteredUsers.map((user) => (
                         <li key={user.id} onClick={()=> handleClick(user.id)}>
-                            <hr/>
                             <img src={user.image} alt="user profile photo"/>
                             
                             <div>

@@ -62,8 +62,8 @@ const Chat = () => {
         <>
         <section className="chat">
             <header>
+                <img src={selectedUser.image} alt="profile photo" />
                 <div className="profile-info">
-                    {/* <img src={selectedUser.image} alt="profile photo" /> */}
                     <h2>
                         {selectedUser.firstName} {selectedUser.lastName}
                     </h2>

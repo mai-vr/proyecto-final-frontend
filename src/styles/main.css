@@ -113,12 +113,18 @@ li small{
 
 .chat header {
     display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+    align-items: center;
+    gap: 1.3rem;
     background-color: white;
     color: var(--grey-800);
-    padding: 13px;
+    padding: 7px;
     border-bottom: 1.5px solid var(--grey-500);
+}
+
+.chat header img {
+    width: 70px;
+    margin-left: 0.8rem;
+    border-radius: 50%;
 }
 
 .chat header h2 {
