@@ -8,7 +8,7 @@ const Chat = () => {
 
     const chatBodyRef = useRef(null) // Referencia para mostrar siempre el último mensaje.
 
-    const {selectedUser} = useContext(ChatContext)
+    const {selectedUser, handleNewMessages} = useContext(ChatContext)
 
     // Manipular el input.
     const handleChangeText = (event) => {
@@ -31,20 +31,21 @@ const Chat = () => {
         const currentTime = new Date()
 
         const newMessage = {
-            id: messages.length + 1,  
+            id: selectedUser.messages.length + 1,  
             author: "me",
             time: currentTime.getHours() + ":" + currentTime.getMinutes(),
             text: text 
         }
 
-        setText("") // Limpiar el texto.
+        handleNewMessages(newMessage)
+        setText("") // Limpiar el texto.    
     }
 
     useEffect(() => {
         if (chatBodyRef.current) { // Cuando enviamos un mensaje actual tiene un scroll top, queremos que el scroll top baje.
             chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight    
         }
-    }, []) 
+    }, [sendMessage]) 
     // Cuando se modifican los mensajes, se ejecuta lo del primer parámetro.
 
     if (!selectedUser) {
@@ -61,12 +62,16 @@ const Chat = () => {
         <>
         <section className="chat">
             <header>
-                <h2>
-                    {selectedUser.firstName} {selectedUser.lastName}
-                </h2>
-                <p className={`${selectedUser.status === 'online' ? 'online-chat' : 'offline-chat'}`}>
-                    {selectedUser.status}
-                </p>
+                <div className="profile-info">
+                    {/* <img src={selectedUser.image} alt="profile photo" /> */}
+                    <h2>
+                        {selectedUser.firstName} {selectedUser.lastName}
+                    </h2>
+                    <p className={`${selectedUser.status === 'online' ? 'online-chat' : 'offline-chat'}`}>
+                        {selectedUser.status}
+                    </p> 
+                </div>
+
             </header>
             <div className="chat-body" ref={chatBodyRef}>
                 {
