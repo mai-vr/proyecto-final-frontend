@@ -1,12 +1,15 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import { users as mockUsers } from '../services/mockApi'
 
 const ChatContext = createContext() 
 
 // Quiero que toda la app conozca los contactos.
 const ChatProvider = ({ children }) => {
+    const userMessagesInLS = JSON.parse(localStorage.getItem('messages'))
+
     const [users, setUsers] = useState(mockUsers)
-    const [selectedUser, setSelectedUser] = useState(null)
+    const [selectedUser, setSelectedUser] = useState(userMessagesInLS)
+
     // const [messages, setMessages] = useState(mockUsers.messages)
 
     const handleSelectedUser = (id) => {
@@ -21,6 +24,10 @@ const ChatProvider = ({ children }) => {
         })
         
     }
+
+    useEffect(() => {
+        localStorage.setItem('messages', JSON.stringify(selectedUser))
+    }, [handleNewMessages])
 
     return (
         <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser }}> 
