@@ -8,6 +8,7 @@ const ChatProvider = ({ children }) => {
 
     const [users, setUsers] = useState(mockUsers)
     const [selectedUser, setSelectedUser] = useState(null)
+    const [loggedUser, setLoggedUser] = useState(null)
 
     // const [messages, setMessages] = useState(mockUsers.messages)
 
@@ -23,8 +24,19 @@ const ChatProvider = ({ children }) => {
         })
     }
 
+    const login = (userData) => {
+        const foundUser = mockUsers.find(user => user.email === userData.email)
+
+        if (!foundUser){
+            return false
+        }
+        if (foundUser.password === userData.password){
+            return true
+        }
+    }
+
     return (
-        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser }}> 
+        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, login }}> 
             {children}
         </ChatContext.Provider>
     )

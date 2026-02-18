@@ -1,5 +1,5 @@
-import { Chat } from './Chats'
-import { Aside } from './Aside'
+import { Chat } from '../components/Chats'
+import { Aside } from '../components/Aside'
 
 const App = () => {
     return (
