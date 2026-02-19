@@ -1,3 +1,5 @@
+import '../styles/not-found.css'
+
 const NotFound = () => {
     return (
         <section className="not-found">
@@ -8,10 +10,12 @@ const NotFound = () => {
                 No se encontró la página
             </h4>
             <div className="next-option">
-                <a href='/'>
-                    Ir al inicio
+                <a href='/register'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m15 17.5l2.5 2.5m0 0l2.5-2.5M17.5 20v-6"/><path d="M21 6H3m18 4H3m8 4H3m8 4H3"/></g></svg>
+                    Registrarse
                 </a>  
                 <a href='/login'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 21v-2h7V5h-7V3h7q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm-2-4l-1.375-1.45l2.55-2.55H3v-2h8.175l-2.55-2.55L10 7l5 5z"/></svg>
                     Iniciar sesión
                 </a>
             </div>
