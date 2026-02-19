@@ -11,7 +11,7 @@ const users = [
     messages: [
       { author: "Scarlett", text: "Hola! ¿Cómo estás?", time: "09:12" },
       { author: "me", text: "Todo bien, arrancando el día", time: "09:14" },
-      { author: "Scarlett", text: "Genial 😄", time: "09:15" }
+      { author: "Scarlett", text: "Genial", time: "09:15" }
     ]
   },
   {

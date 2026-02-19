@@ -26,28 +26,27 @@
     --primary-font: "Roboto", sans-serif;
 }
 
-.cont-register {
+.add-contact{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, var(--dark-600), var(--dark-700));
+    background: linear-gradient(135deg, var(--dark-600), var(--violet-500));
     padding: 30px;
 }
 
-.cont-register {
-    text-align: center;
-}
-
 .add-contact-cont {
-    width: 360px;
+    width: 400px;
     background-color: var(--dark-900);
-    padding: 20px;
+    padding: 40px;
     border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.cont-register form {
+.add-contact form {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -56,18 +55,19 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-.cont-register h1 {
+.add-contact h1 {
     color: var(--grey-100);
     font-size: 35px;
+    margin-bottom: 1.5rem;
 }
 
-.cont-register h4 {
+.add-contact h4 {
     color: var(--grey-200);
     font-weight: 400;
     margin-top: 10px;
 }
 
-.cont-register input {
+.add-contact input {
     padding: 10px;
     border-radius: 10px;
     border: 2px solid var(--dark-800);
@@ -77,11 +77,11 @@
     outline: none;
 }
 
-.cont-register input:focus {
+.add-contact input:focus {
     outline: 1.5px solid var(--violet-400);
 }
 
-.cont-register button {
+.add-contact button {
     margin-top: 15px;
     padding: 10px;
     border-radius: 10px;
@@ -94,7 +94,7 @@
     transition: all 0.2s ease;
 }
 
-.cont-register button:hover {
+.add-contact button:hover {
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba(154, 58, 228, 0.4);
 }

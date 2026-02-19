@@ -40,6 +40,9 @@ const Login = () => {
                 <h3>
                     Inicia sesión
                 </h3>
+                <p>
+                    Comenzá a chatear con tus contactos
+                </p>
                 <form onSubmit={handleSubmit}>
                     <input type="email" placeholder="Escribir email..." onChange={handleChangeEmail}/>
                     <input type="password" placeholder="Escribir contraseña..." onChange={handleChangePassword} />

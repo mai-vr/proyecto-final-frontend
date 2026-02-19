@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { ChatContext } from "../context/ChatContext"
 import { useNavigate } from "react-router-dom"
+import '../styles/register.css'
 
 const Register = () => {
     

@@ -46,10 +46,10 @@ const AddContact = () => {
     }
     
     return (
-        <section className="cont-register">
+        <section className="add-contact">
             <div className="add-contact-cont">
                 <h1>
-                    ¡Hola!
+                    Agregar contacto
                 </h1>
                 <h4>
                     Agrega un nuevo contacto para comenzar a chatear
@@ -63,7 +63,7 @@ const AddContact = () => {
                     <input type="text" placeholder="Escribir país..." onChange={handleChangeCountry} />
                     <input type="file" accept="image/*" onChange={handleChangeImage} />
                     <button>
-                        Enviar
+                        Agregar
                     </button>
                 </form>  
             </div>

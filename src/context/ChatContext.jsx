@@ -7,7 +7,13 @@ const ChatContext = createContext()
 const ChatProvider = ({ children }) => {
 
     const [selectedUser, setSelectedUser] = useState(null)
-    const [loggedUser, setLoggedUser] = useState(JSON.parse(localStorage.getItem('userLogged')) || null)
+    const [loggedUser, setLoggedUser] = useState(() => {
+        const savedLogged = localStorage.getItem('userLogged')
+        if (savedLogged === undefined || !savedLogged) {
+            return null
+        }
+        return savedLogged
+    })
 
     const handleActiveUser = (user) => {
         setLoggedUser(user)
@@ -21,6 +27,7 @@ const ChatProvider = ({ children }) => {
 
     const logout = () => {
         localStorage.removeItem('userLogged')
+        setLoggedUser(null)
     }
 
     const handleNewMessages = (newM) => {
@@ -38,17 +45,6 @@ const ChatProvider = ({ children }) => {
         localStorage.setItem('users', JSON.stringify(updatedUsers))
     }
 
-    const login = (userData) => {
-        const foundUser = mockUsers.find(user => user.email === userData.email)
-
-        if (!foundUser){
-            return false
-        }
-        if (foundUser.password === userData.password){
-            return true
-        }
-    }
-
     const totalUsers = () => {
         const savedUsers = localStorage.getItem('users')
 
@@ -59,6 +55,17 @@ const ChatProvider = ({ children }) => {
         return mockUsers 
     }
     const [users, setUsers] = useState(totalUsers)
+
+    const login = (userData) => {
+        const foundUser = totalUsers().find(user => user.email === userData.email)
+
+        if (!foundUser){
+            return false
+        }
+        if (foundUser.password === userData.password){
+            return true
+        }
+    }
 
     const messagesSaved = (newMessages) => {
         setUsers({
