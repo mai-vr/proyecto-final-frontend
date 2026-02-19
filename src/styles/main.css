@@ -54,9 +54,33 @@ aside {
 
 aside h1 {
     font-size: 32px;
-    margin-bottom: 10px;
+    margin: 0;
     font-weight: 800;
     color: var(--grey-100);
+}
+
+aside .header-aside {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-aside svg {
+    width: 30px;
+    display: block;
+}
+
+.header-aside a {
+    border-radius: 50%;
+    background-color: var(--dark-700);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.header-aside a:hover {
+    background-color: var(--violet-500);
 }
 
 aside input {

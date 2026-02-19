@@ -4,6 +4,7 @@ import { NotFound } from '../views/NotFound'
 import { Login } from '../views/Login'
 import { AddContact } from '../views/AddContact'
 import { Home } from '../views/Home'
+import { Register } from '../views/Register'
 
 const RouterApp = () => {
     return (
@@ -13,6 +14,7 @@ const RouterApp = () => {
                 <Route path='/app' element={<App/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/addcontact' element={<AddContact/>}/>
+                <Route path='/register' element={<Register/>}/>
                 <Route path='*' element={<NotFound/>}/>
             </Routes>
         </BrowserRouter>
