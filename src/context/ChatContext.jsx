@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { users as mockUsers } from '../services/mockApi'
+import { usersLogged as usLog } from '../services/mockApi'
 
 const ChatContext = createContext() 
 
@@ -56,8 +57,17 @@ const ChatProvider = ({ children }) => {
     }
     const [users, setUsers] = useState(totalUsers)
 
+    const usLogged = () => {
+        const savedLoggedUsers = localStorage.getItem('usersLogged')
+
+        if (savedLoggedUsers) {
+            return JSON.parse(savedLoggedUsers)
+        }
+        return usLog
+    }
+
     const login = (userData) => {
-        const foundUser = totalUsers().find(user => user.email === userData.email)
+        const foundUser = usLogged().find(user => user.email === userData.email)
 
         if (!foundUser){
             return false

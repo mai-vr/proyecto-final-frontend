@@ -126,6 +126,9 @@ const users = [
       { author: "me", text: "Recibido 👍", time: "13:57" }
     ]
   },
+];
+
+const usersLogged = [
   {
     id: 10,
     firstName: "Timothée",
@@ -140,6 +143,6 @@ const users = [
       { author: "me", text: "Perfecto!", time: "22:11" }
     ]
   }
-];
+]
 
-export { users };
+export { users, usersLogged };
