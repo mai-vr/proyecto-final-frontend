@@ -7,13 +7,20 @@ const ChatContext = createContext()
 const ChatProvider = ({ children }) => {
 
     const [selectedUser, setSelectedUser] = useState(null)
-    const [loggedUser, setLoggedUser] = useState(null)
+    const [loggedUser, setLoggedUser] = useState(JSON.parse(localStorage.getItem('userLogged')) || null)
 
-    // const [messages, setMessages] = useState(mockUsers.messages)
+    const handleActiveUser = (user) => {
+        setLoggedUser(user)
+        localStorage.setItem('userLogged', JSON.stringify(user))
+    }
 
     const handleSelectedUser = (id) => {
         const foundUser = totalUsers().find(user => user.id === id)
         setSelectedUser(foundUser)
+    }
+
+    const logout = () => {
+        localStorage.removeItem('userLogged')
     }
 
     const handleNewMessages = (newM) => {
@@ -84,7 +91,7 @@ const ChatProvider = ({ children }) => {
     }
 
     return (
-        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, login, addContact }}> 
+        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, login, addContact, handleActiveUser, logout, loggedUser }}> 
             {children}
         </ChatContext.Provider>
     )

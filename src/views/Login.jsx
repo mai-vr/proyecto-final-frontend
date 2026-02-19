@@ -8,7 +8,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
 
-    const {login} = useContext(ChatContext)
+    const {login, handleActiveUser} = useContext(ChatContext)
     const navigate = useNavigate()
 
     const handleChangeEmail = (event) => {
@@ -30,7 +30,8 @@ const Login = () => {
             return 
         }
 
-        navigate('/app')
+        handleActiveUser({email, password})
+        navigate('/')
     }
 
     return (

@@ -1,11 +1,13 @@
 import { useState, useContext } from 'react'
 import { ChatContext } from '../context/ChatContext'
+import { useNavigate } from 'react-router-dom'
 
 const Aside = () => {
 
     const [search, setSearch] = useState("")
 
-    const { users, handleSelectedUser } = useContext(ChatContext)
+    const { users, handleSelectedUser, logout } = useContext(ChatContext)
+    const navigate = useNavigate()
 
     const handleChange = (event) => {
         setSearch(event.target.value) 
@@ -13,6 +15,11 @@ const Aside = () => {
 
     const handleClick = (id) => {
         handleSelectedUser(id)
+    }
+
+    const handleLogout = () => {
+        logout()
+        navigate('/login')
     }
 
     // Normalizar datos (trabajar con todo en lower case).
@@ -26,6 +33,9 @@ const Aside = () => {
         <aside>
             <div className="header-aside">
                 <h1>Chat UTN</h1>
+                <button onClick={handleLogout}>
+                    Cerrar sesion
+                </button>
                 <a href="/addcontact">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#ffffff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
                 </a>

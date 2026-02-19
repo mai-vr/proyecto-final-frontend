@@ -1,9 +1,11 @@
 import { useContext, useState } from "react"
 import { ChatContext } from "../context/ChatContext"
+import { useNavigate } from "react-router-dom"
 
 const Register = () => {
     
-    const {users} = useContext(ChatContext)
+    const {users, login, handleActiveUser} = useContext(ChatContext)
+    const navigate = useNavigate()
 
     const newUserData = {
         id: users.length + 1,
@@ -53,7 +55,12 @@ const Register = () => {
         })
     }
 
-
+    const handleSubmitUser = (e) => {
+        e.preventDefault()
+        login(newUser)
+        handleActiveUser(newUser)
+        navigate('/')
+    }
 
     return (
         <section className="register">
@@ -64,7 +71,7 @@ const Register = () => {
                 <p>
                     Registrate para poder comenzar a chatear con tus contactos
                 </p>
-                <form>
+                <form onSubmit={handleSubmitUser}>
                     <label htmlFor="name">Nombre</label>
                     <input type="text" placeholder="Ingresa tu nombre" required onChange={handleChangeName}/>
                     <label htmlFor="lastName">Apellido</label>
@@ -75,6 +82,9 @@ const Register = () => {
                     <input type="password" placeholder="Ingresa una contraseña" required onChange={handleChangePassword}/>
                     <label htmlFor="country">País</label>
                     <input type="text" placeholder="Ingresa un país" onChange={handleChangeCountry}/>
+                    <button>
+                        Enviar
+                    </button>
                 </form>
             </div>
 
