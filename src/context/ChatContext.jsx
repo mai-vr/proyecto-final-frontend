@@ -13,7 +13,7 @@ const ChatProvider = ({ children }) => {
         if (savedLogged === undefined || !savedLogged) {
             return null
         }
-        return savedLogged
+        return JSON.parse(savedLogged)
     })
 
     const handleActiveUser = (user) => {
@@ -67,14 +67,16 @@ const ChatProvider = ({ children }) => {
     }
 
     const login = (userData) => {
-        const foundUser = usLogged().find(user => user.email === userData.email)
+        
+        const foundUser = usLogged().find(us => us.email === userData.email)
 
-        if (!foundUser){
+        if (!foundUser) {
             return false
         }
-        if (foundUser.password === userData.password){
+        if (foundUser.password === userData.password) {
             return true
         }
+
     }
 
     const messagesSaved = (newMessages) => {

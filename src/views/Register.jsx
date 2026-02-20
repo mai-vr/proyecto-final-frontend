@@ -5,7 +5,7 @@ import '../styles/register.css'
 
 const Register = () => {
     
-    const {users, login, handleActiveUser} = useContext(ChatContext)
+    const {users, login, handleActiveUser, addContact} = useContext(ChatContext)
     const navigate = useNavigate()
 
     const newUserData = {
@@ -58,9 +58,13 @@ const Register = () => {
 
     const handleSubmitUser = (e) => {
         e.preventDefault()
-        login(newUser)
+
+        const savedLogged = JSON.parse(localStorage.getItem('usersLogged')) || []
+        savedLogged.push(newUser)
+        localStorage.setItem('usersLogged', JSON.stringify(savedLogged))
+
         handleActiveUser(newUser)
-        navigate('/')
+        navigate('/login')
     }
 
     return (

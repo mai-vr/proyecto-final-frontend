@@ -6,7 +6,7 @@ const Aside = () => {
 
     const [search, setSearch] = useState("")
 
-    const { users, handleSelectedUser, logout, loggedUser } = useContext(ChatContext)
+    const { users, handleSelectedUser, logout, loggedUser} = useContext(ChatContext)
     const navigate = useNavigate()
 
     const handleChange = (event) => {
@@ -28,12 +28,12 @@ const Aside = () => {
         return fullName.toLowerCase().includes(search.toLowerCase())
     })
     // Filtro los usuarios en torno a: primero generar el nombre completo y a ese string que genero le pregunto si contiene lo que busco.
-
+   
     return (
         <aside>
             <div className="header-aside">
                 <h1>
-                    {loggedUser.firstName} {loggedUser.lastName}
+                    Chat UTN
                 </h1>
                 <button onClick={handleLogout}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 17l5-5l-5-5m5 5H9m0 9H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>    

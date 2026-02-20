@@ -98,9 +98,10 @@
     box-shadow: 0 6px 20px rgba(154, 58, 228, 0.4);
 }
 
-.error-font {
+.login .error-font {
     text-align: center;
     color: var(--red-100);
+    margin: 20px 0px;
 }
 
 a {

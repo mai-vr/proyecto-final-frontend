@@ -8,7 +8,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
 
-    const {login, handleActiveUser} = useContext(ChatContext)
+    const {login, handleActiveUser, usLogged} = useContext(ChatContext)
     const navigate = useNavigate()
 
     const handleChangeEmail = (event) => {
@@ -22,9 +22,10 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         setError(null)
-
-        const response = login({ email, password })
-
+        
+        // const userActive = usLogged().find(us => us.email === email)
+        const response = login({email, password})
+        
         if (!response) {
             setError(true)
             return 
