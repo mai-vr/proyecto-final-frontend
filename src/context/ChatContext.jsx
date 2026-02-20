@@ -15,6 +15,7 @@ const ChatProvider = ({ children }) => {
         }
         return JSON.parse(savedLogged)
     })
+    const [activeName, setActiveName] = useState('')
 
     const handleActiveUser = (user) => {
         setLoggedUser(user)
@@ -27,7 +28,7 @@ const ChatProvider = ({ children }) => {
     }
 
     const logout = () => {
-        localStorage.removeItem('userLogged')
+        localStorage.removeItem('usersLogged')
         setLoggedUser(null)
     }
 
@@ -69,6 +70,7 @@ const ChatProvider = ({ children }) => {
     const login = (userData) => {
         
         const foundUser = usLogged().find(us => us.email === userData.email)
+        setActiveName(foundUser)
 
         if (!foundUser) {
             return false
@@ -110,7 +112,7 @@ const ChatProvider = ({ children }) => {
     }
 
     return (
-        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, login, addContact, handleActiveUser, logout, loggedUser }}> 
+        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, login, addContact, handleActiveUser, logout, loggedUser, activeName }}> 
             {children}
         </ChatContext.Provider>
     )

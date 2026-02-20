@@ -51,6 +51,7 @@ const Login = () => {
                         Iniciar sesión
                     </button>
                     <a href="/register">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m15 17.5l2.5 2.5m0 0l2.5-2.5M17.5 20v-6"/><path d="M21 6H3m18 4H3m8 4H3m8 4H3"/></g></svg>
                         No tengo cuenta
                     </a>
                     {

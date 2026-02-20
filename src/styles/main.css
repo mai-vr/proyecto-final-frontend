@@ -57,6 +57,7 @@ aside h1 {
     margin: 1rem 0rem;
     font-weight: 800;
     color: var(--grey-100);
+    text-transform: capitalize;
 }
 
 aside .header-aside {
