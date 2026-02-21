@@ -7,7 +7,6 @@ const AddContact = () => {
     const [name, setName] = useState('')
     const [lastName, setLastName] = useState('')
     const [newEmail, setNewEmail] = useState('')
-    const [newPassword, setNewPassword] = useState('')
     const [country, setCountry] = useState('')
     const [image, setImage] = useState('')
 
@@ -26,10 +25,6 @@ const AddContact = () => {
         setNewEmail(event.target.value)
     }    
 
-    const handleNewPassword = (event) => {
-        setNewPassword(event.target.value)
-    }
-
     const handleChangeCountry = (event) => {
         setCountry(event.target.value)
     }
@@ -40,9 +35,9 @@ const AddContact = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        addContact({name, lastName, newEmail, newPassword, country, image})
+        addContact({name, lastName, newEmail, country, image})
         
-        navigate('/app')
+        navigate('/')
     }
     
     return (
@@ -59,7 +54,6 @@ const AddContact = () => {
                     <input type="text" required placeholder="Escribir un nombre..." onChange={handleChangeName}/>
                     <input type="text" required placeholder="Escribir un apellido..." onChange={handleChangeLastName} />
                     <input type="email" required placeholder="Escribir un email..." onChange={handleNewEmail}/>
-                    <input type="password" required placeholder="Escribir una contraseña..." onChange={handleNewPassword} />
                     <input type="text" placeholder="Escribir país..." onChange={handleChangeCountry} />
                     <input type="file" accept="image/*" onChange={handleChangeImage} />
                     <button>

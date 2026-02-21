@@ -285,3 +285,32 @@ li small{
     transform: scale(1.1);
     cursor: pointer;
 }
+
+.footer-chat-mobile {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    aside {
+        display: none;
+    }
+    .chat {
+        width: 100%;
+    }
+    .footer-chat-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: var(--dark-600);
+    }
+    .footer-chat-mobile button {
+        width: 30px;
+        border: none;
+        background-color: var(--dark-800);
+        border-radius: 10px;
+        padding: 5px;
+    }
+    .footer-chat-mobile svg {
+        width: 100%;
+    }
+}

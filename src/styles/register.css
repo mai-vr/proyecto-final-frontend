@@ -104,3 +104,19 @@
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba(154, 58, 228, 0.4);
 }
+
+@media (max-width: 600px) {
+    .register {
+        padding: 15px;
+    }
+    .register-container {
+        width: 350px;
+    }
+    .register-container h2 {
+        font-size: 35px;
+    }
+    .register-container p {
+        font-size: 18px;
+        margin-bottom: 2rem;
+    }
+}

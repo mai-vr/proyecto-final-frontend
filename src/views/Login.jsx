@@ -8,15 +8,15 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
 
-    const {login, handleActiveUser, usLogged} = useContext(ChatContext)
+    const {login, handleActiveUser} = useContext(ChatContext)
     const navigate = useNavigate()
 
     const handleChangeEmail = (event) => {
-        setEmail(event.target.value)
+        setEmail(event.target.value.toLowerCase())
     }
 
     const handleChangePassword = (event) => {
-        setPassword(event.target.value)
+        setPassword(event.target.value.toLowerCase())
     }
 
     const handleSubmit = (event) => {

@@ -1,14 +1,17 @@
 import { useState, useRef, useEffect, useContext } from "react"
 import { ChatContext } from "../context/ChatContext"
+import { useNavigate } from "react-router-dom"
 
 const Chat = () => {
     
     const [text, setText] = useState("")
     // const [messages, setMessages] = useState(mockUsers.messages)
+    const [seeContacts, setSeeContacts] = useState(false)
 
     const chatBodyRef = useRef(null) // Referencia para mostrar siempre el último mensaje.
 
-    const {selectedUser, handleNewMessages } = useContext(ChatContext)
+    const {selectedUser, handleNewMessages, logout } = useContext(ChatContext)
+    const navigate = useNavigate()
 
     // Manipular el input.
     const handleChangeText = (event) => {
@@ -47,6 +50,15 @@ const Chat = () => {
         }
     }, [sendMessage]) 
     // Cuando se modifican los mensajes, se ejecuta lo del primer parámetro.
+
+    const handleClickContacts = () => {
+        setSeeContacts(!seeContacts)
+    }
+
+    const handlClickLogout = () => {
+        logout()
+        navigate('/login')
+    }
 
     if (!selectedUser) {
         return (
@@ -92,6 +104,11 @@ const Chat = () => {
                     }
                 </button>
             </div>
+            <footer className="footer-chat-mobile">
+                <button onClick={handlClickLogout}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 17l5-5l-5-5m5 5H9m0 9H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>    
+                </button>
+            </footer>
         </section>
         </>
     )

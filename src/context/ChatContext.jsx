@@ -9,7 +9,7 @@ const ChatProvider = ({ children }) => {
 
     const [selectedUser, setSelectedUser] = useState(null)
     const [loggedUser, setLoggedUser] = useState(() => {
-        const savedLogged = localStorage.getItem('userLogged')
+        const savedLogged = localStorage.getItem('usersLogged')
         if (savedLogged === undefined || !savedLogged) {
             return null
         }
@@ -19,7 +19,7 @@ const ChatProvider = ({ children }) => {
 
     const handleActiveUser = (user) => {
         setLoggedUser(user)
-        localStorage.setItem('userLogged', JSON.stringify(user))
+        localStorage.setItem('usersLogged', JSON.stringify(user))
     }
 
     const handleSelectedUser = (id) => {
@@ -71,7 +71,7 @@ const ChatProvider = ({ children }) => {
         
         const foundUser = usLogged().find(us => us.email === userData.email)
         setActiveName(foundUser)
-
+        
         if (!foundUser) {
             return false
         }
@@ -105,7 +105,7 @@ const ChatProvider = ({ children }) => {
         const updatedUsers = [...users, newUser]
         setUsers(updatedUsers)
 
-        messagesSaved
+        // messagesSaved
 
         localStorage.setItem('users', JSON.stringify(updatedUsers))
         return true

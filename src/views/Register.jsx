@@ -5,7 +5,7 @@ import '../styles/register.css'
 
 const Register = () => {
     
-    const {users, login, handleActiveUser, addContact} = useContext(ChatContext)
+    const {users, handleActiveUser} = useContext(ChatContext)
     const navigate = useNavigate()
 
     const newUserData = {
@@ -24,35 +24,35 @@ const Register = () => {
     const handleChangeName = (e) => {
         setNewUser({
             ...newUser,
-            firstName: e.target.value
+            firstName: e.target.value.toLowerCase()
         })
     }
 
     const handleChangeLastName = (e) => {
         setNewUser({
             ...newUser,
-            lastName: e.target.value,
+            lastName: e.target.value.toLowerCase(),
         })
     }
 
     const handleChangeEmail = (e) => {
         setNewUser({
             ...newUser,
-            email: e.target.value
+            email: e.target.value.toLowerCase()
         })
     }
 
     const handleChangePassword = (e) => {
         setNewUser({
             ...newUser,
-            password: e.target.value
+            password: e.target.value.toLowerCase()
         })
     }
 
     const handleChangeCountry = (e) => {
         setNewUser({
             ...newUser,
-            address: {country: e.target.value}
+            address: {country: e.target.value.toLowerCase()}
         })
     }
 
