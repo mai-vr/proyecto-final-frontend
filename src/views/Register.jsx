@@ -61,6 +61,7 @@ const Register = () => {
 
         const savedLogged = JSON.parse(localStorage.getItem('usersLogged')) || []
         savedLogged.push(newUser)
+        
         localStorage.setItem('usersLogged', JSON.stringify(savedLogged))
 
         handleActiveUser(newUser)

@@ -62,7 +62,9 @@ const ChatProvider = ({ children }) => {
         const savedLoggedUsers = localStorage.getItem('usersLogged')
 
         if (savedLoggedUsers) {
-            return JSON.parse(savedLoggedUsers)
+            const savedJson = JSON.parse(savedLoggedUsers)
+            // Paso el objeto a array para poder usar '.find' luego.
+            return [savedJson]
         }
         return usLog
     }
@@ -70,12 +72,12 @@ const ChatProvider = ({ children }) => {
     const login = (userData) => {
         
         const foundUser = usLogged().find(us => us.email === userData.email)
-        setActiveName(foundUser)
         
         if (!foundUser) {
             return false
         }
         if (foundUser.password === userData.password) {
+            setActiveName(foundUser)
             return true
         }
 
@@ -105,7 +107,7 @@ const ChatProvider = ({ children }) => {
         const updatedUsers = [...users, newUser]
         setUsers(updatedUsers)
 
-        // messagesSaved
+        messagesSaved
 
         localStorage.setItem('users', JSON.stringify(updatedUsers))
         return true
