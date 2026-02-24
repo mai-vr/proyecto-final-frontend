@@ -238,8 +238,8 @@ li small{
 }
 
 .message.received {
-    color: var(--dark-600);
-    background-color: var(--grey-200);
+    background-color: var(--dark-600);
+    color: var(--grey-100);
 }
 
 .timestamp {
