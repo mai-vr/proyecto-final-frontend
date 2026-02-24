@@ -4,12 +4,6 @@ import { useNavigate } from "react-router-dom"
 import '../styles/add-contact.css'
 
 const AddContact = () => {
-    // const [name, setName] = useState('')
-    // const [lastName, setLastName] = useState('')
-    // const [newEmail, setNewEmail] = useState('')
-    // const [country, setCountry] = useState('')
-    // const [image, setImage] = useState('')
-
     const contact = {
         name: '',
         lastName: '',
@@ -21,22 +15,6 @@ const AddContact = () => {
 
     const {addContact} = useContext(ChatContext)
     const navigate = useNavigate()
-
-    // const handleChangeName = (event) => {
-    //     setName(event.target.value)
-    // }    
-
-    // const handleChangeLastName = (event) => {
-    //     setLastName(event.target.value)
-    // }
-
-    // const handleNewEmail = (event) => {
-    //     setNewEmail(event.target.value)
-    // }    
-
-    // const handleChangeCountry = (event) => {
-    //     setCountry(event.target.value)
-    // }
 
     const handleChangeContact = (e) => {
         const { name, value } = e.target

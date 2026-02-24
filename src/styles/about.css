@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--primary-font);
+}
+
+:root {
+    --dark-900: #050816;
+    --dark-800: #0B0F2A;
+    --dark-700: #121736;
+    --dark-600: #1B1F45;
+
+    --violet-500: #7B5CFF;
+    --violet-400: #9B6DFF;
+    --violet-300: #C084FC;
+
+    --indigo-500: #5C6CFF;
+    --indigo-400: #7FA0FF;
+    
+    --grey-200:  #B8BEDA;
+    --grey-100:  #F5F7FF;
+
+    --primary-font: "Roboto", sans-serif;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--dark-600), var(--dark-900));
+    color: var(--grey-100);
+    padding: 5rem;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    background: linear-gradient(-60deg, var(--violet-300), var(--violet-500));
+    border-radius: 15px;
+    padding: 20px;
+    gap: 1rem;
+}
+
+.main-container p {
+    line-height: 1.4rem;
+}
+
+.main-container .logo-app {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main-container .logo-app img {
+    width: 50px;
+}
+
+.main-container .logo-app h2 {
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.general-desc {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    background: linear-gradient(135deg, var(--indigo-500), var(--dark-600));
+    border-radius: 15px;
+    padding: 20px;
+    gap: 1rem;
+}   
+
+.general-desc h4 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.general-desc p {
+    line-height: 1.4rem;
+}
+
+#main-parts {
+    align-self: end;
+    transform: translateY(-40px);
+}
+
+.tecnic-desc {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    background: linear-gradient(135deg, var(--indigo-500), var(--dark-600));
+    border-radius: 15px;
+    padding: 20px;
+    gap: 1rem;
+}
+
+.tecnic-desc h4 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.tecnic-desc p {
+    line-height: 1.4rem;
+}
+
+.tecnic-desc ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style: none;
+}
+
+.tecnic-desc ul li {
+    display: flex;
+    align-items: center;
+    color: var(--grey-100);
+    gap: 1.5rem;
+}
+
+.tecnic-desc ul li svg{
+    width: 30px;
+}
+
+#languages-used {
+    transform: translateY(-100px);
+}

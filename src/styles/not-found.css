@@ -49,7 +49,7 @@
 
 .next-option {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 4rem;
 }
 
@@ -63,7 +63,15 @@
     font-weight: 500;
     color: var(--grey-200);
     font-size: 17px;
-    gap: 1rem;
+    gap: 0.7rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.next-option a:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0px -1px 65px -26px rgba(192, 132, 252, 0.9);
 }
 
 .next-option svg {
