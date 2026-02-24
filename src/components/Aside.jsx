@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react'
 import { ChatContext } from '../context/ChatContext'
 import { useNavigate } from 'react-router-dom'
+import defaultProfile from "../assets/profileDefaultPhoto.jpg"
 
 const Aside = () => {
 
@@ -50,7 +51,7 @@ const Aside = () => {
                     filteredUsers.length === 0 ? <p className='contact-not-found'>No hay contactos</p> :
                     filteredUsers.map((user) => (
                         <li key={user.id} onClick={()=> handleClick(user.id)}>
-                            <img src={user.image} alt="user profile photo"/>
+                            <img src={user.image ? user.image : defaultProfile} alt="user profile photo"/>
                             
                             <div>
                                 {user.firstName} {user.lastName}

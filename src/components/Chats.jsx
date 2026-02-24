@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useContext } from "react"
 import { ChatContext } from "../context/ChatContext"
 import { useNavigate } from "react-router-dom"
+import defaultProfile from "../assets/profileDefaultPhoto.jpg"
 
 const Chat = () => {
     
@@ -74,7 +75,7 @@ const Chat = () => {
         <>
         <section className="chat">
             <header>
-                <img src={selectedUser.image} alt="profile photo" />
+                <img src={selectedUser.image ? selectedUser.image : defaultProfile} alt="profile photo" />
                 <div className="profile-info">
                     <h2>
                         {selectedUser.firstName} {selectedUser.lastName}

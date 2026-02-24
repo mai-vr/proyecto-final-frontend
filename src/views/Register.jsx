@@ -21,51 +21,23 @@ const Register = () => {
 
     const [newUser, setNewUser] = useState(newUserData)
 
-    const handleChangeName = (e) => {
-        setNewUser({
-            ...newUser,
-            firstName: e.target.value.toLowerCase()
-        })
-    }
-
-    const handleChangeLastName = (e) => {
-        setNewUser({
-            ...newUser,
-            lastName: e.target.value.toLowerCase(),
-        })
-    }
-
-    const handleChangeEmail = (e) => {
-        setNewUser({
-            ...newUser,
-            email: e.target.value.toLowerCase()
-        })
-    }
-
-    const handleChangePassword = (e) => {
-        setNewUser({
-            ...newUser,
-            password: e.target.value.toLowerCase()
-        })
-    }
-
-    const handleChangeCountry = (e) => {
-        setNewUser({
-            ...newUser,
-            address: {country: e.target.value.toLowerCase()}
-        })
+    const handleChangeUser = (e) => {
+        const { name, value } = e.target
+        setNewUser({...newUser, [name]: value})
     }
 
     const handleSubmitUser = (e) => {
         e.preventDefault()
 
-        const savedLogged = JSON.parse(localStorage.getItem('usersLogged')) || []
+        const parsedUsers = JSON.parse(localStorage.getItem('usersLogged'))
+
+        const savedLogged = [parsedUsers] || []
         savedLogged.push(newUser)
         
         localStorage.setItem('usersLogged', JSON.stringify(savedLogged))
 
         handleActiveUser(newUser)
-        navigate('/login')
+        navigate('/')
     }
 
     return (
@@ -79,15 +51,15 @@ const Register = () => {
                 </p>
                 <form onSubmit={handleSubmitUser}>
                     <label htmlFor="name">Nombre</label>
-                    <input type="text" placeholder="Ingresa tu nombre" required onChange={handleChangeName}/>
+                    <input type="text" name="firstName" placeholder="Ingresa tu nombre" required onChange={handleChangeUser} minLength='3'/>
                     <label htmlFor="lastName">Apellido</label>
-                    <input type="text" placeholder="Ingresa tu apellido" required onChange={handleChangeLastName}/>
+                    <input type="text" name="lastName" placeholder="Ingresa tu apellido" required onChange={handleChangeUser}/>
                     <label htmlFor="email">Email</label>
-                    <input type="email" placeholder="Ingresa tu email" required onChange={handleChangeEmail}/>
+                    <input type="email" name="email" placeholder="Ingresa tu email" required onChange={handleChangeUser}/>
                     <label htmlFor="password">Contraseña</label>
-                    <input type="password" placeholder="Ingresa una contraseña" required onChange={handleChangePassword}/>
+                    <input type="password" name="password" placeholder="Ingresa una contraseña" required onChange={handleChangeUser} minLength='6'/>
                     <label htmlFor="country">País</label>
-                    <input type="text" placeholder="Ingresa un país" onChange={handleChangeCountry}/>
+                    <input type="text" name="country" placeholder="Ingresa un país" onChange={handleChangeUser}/>
                     <button>
                         Enviar
                     </button>
