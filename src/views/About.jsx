@@ -126,7 +126,14 @@ const About = () => {
                         </p>
                     </div>
                 </div>
+
             </section>
+            <footer className="about-footer">
+                <a href="/login">Iniciar sesion</a>
+                <a href="/register">Registrarse</a>
+                <a href="https://github.com/mai-vr/proyecto-final-frontend.git">Repositorio</a>
+            </footer>
+
         </>
     )
 }
