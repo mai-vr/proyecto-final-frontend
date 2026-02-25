@@ -13,23 +13,21 @@ const About = () => {
                         </h2>
                     </div>
                     <p>
-                        Este proyecto es una simulación de una aplicación para chatear realizada como proyecto final de la diplomatura en desarrollo Full Stack (UTN).
+                        Este proyecto es una simulación de una aplicación para chatear realizada como proyecto final de la
+                        Diplomatura en Desarrollo Full Stack de la UTN. <br />
+                        Si bien se trata de un proyecto académico, fue diseñado buscando replicar funcionalidades y estilos
+                        de aplicaciones de chat reales, con una interfaz clara y ordenada.
                     </p>
                 </div>
-                <div className="general-desc" id="main-parts">
-                    <h4>
-                        Partes principales
-                    </h4>
-                    <p>
-                        En esta aplicación el usuario debe iniciar sesión o registrarse en caso de no tener una cuenta para poder acceder a las conversaciones con sus contactos. Asimismo, puede agregar nuevos si lo desea.<br></br>
-                        La totalidad de la aplicación mantiene un estilo uniforme elegante y profesional basado en una gama de colores fríos.
-                    </p>
-                </div>
-                <div className="extra-info-container">
-                    <div className="tecnic-desc" id="languages-used">
-                        <h4>
-                            Tecnologías utilizadas
-                        </h4>
+                <div className="about-info-grid">
+
+                    <div className="tecnic-desc">
+                        <div className="tecnic-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="#B8BEDA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 10h3V7L6.5 3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1-3 3l-6-6a6 6 0 0 1-8-8z" /></svg>
+                            <h4>
+                                Tecnologías utilizadas
+                            </h4>
+                        </div>
                         <ul>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 8 8"><path fill="#B8BEDA" d="m1 7l3 1l3-1l1-7H0m1 1h6v1H2.5L3 3h3.5L6 6H2V5h3V4H2" /></svg>
@@ -49,57 +47,80 @@ const About = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="tecnic-desc">
-                        <h4>
-                            Especificidades
-                        </h4>
-                        <p>
-                            Al momento de entrar a la aplicación automaticamente se redirije al usuario a la página de inicio de sesión para que no pueda acceder si no tiene una cuenta. Allí se validan los datos ingresados guardados
-                            en el almacenamiento interno del navegador y se muestra la página con los chats.
-                        </p>
-                        <p>
-                            En la parte superior de la barra lateral existen dos opciones:
-                        </p>
+                    <div className="tecnic-desc right-containers">
+                        <div className="tecnic-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="#B8BEDA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h3a1 1 0 0 0 1-1V5a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-1a2 2 0 0 0-4 0v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a2 2 0 0 0 0-4H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1" /></svg>
+                            <h4>
+                                Partes principales
+                            </h4>
+                        </div>
+
                         <ul>
-                            <ol>
-                                Cerrar sesión - se encarga de borrar el email y la contraseña ingresados por el usuario del almacenamiento interno.
-                            </ol>
-                            <ol>
-                                Agregar contactos - añade un nuevo contacto a la lista de usuarios pre definida por el mock de la API. Para poder renderizar su
-                                foto de perfil se utiliza base64 que transforma en string la imagen y permite renderizarla posteriormente en la seccion 'aside'.
-                            </ol>
+                            <li>Registro e inicio de sesión con validaciones de datos.</li>
+                            <li>Visualización de usuarios disponibles para conversar.</li>
+                            <li>Interfaz principal donde se envían y reciben mensajes.</li>
                         </ul>
-                        <p>
-                            En caso de no poseer una cuenta, el usuario puede registrarse ingresando sus datos (obligatorios y con validaciones de caracteres mínimos), que serán guardados en el
-                            almacenamiento interno para mantener la sesión iniciada.
-                        </p>
-                        <p>
-                            Se incluyó una página en caso de que la url ingresada no sea correcta. En esta se incluyen tres botones que redirijen al usuario a una página válida.
-                        </p>
                     </div>
                     <div className="tecnic-desc">
-                        <h4>
-                            Organización
-                        </h4>
+                        <div className="tecnic-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 20 20"><path fill="#B8BEDA" d="M15 11q.221 0 .435.023c.2.022.355.178.397.373l.222 1.036a.5.5 0 0 0 .642.37l1.006-.325a.46.46 0 0 1 .52.156q.26.352.439.758a.465.465 0 0 1-.125.529l-.785.709a.5.5 0 0 0 0 .742l.785.708a.465.465 0 0 1 .125.53q-.178.405-.439.757a.465.465 0 0 1-.52.157l-1.006-.326a.5.5 0 0 0-.642.371l-.222 1.034a.47.47 0 0 1-.397.374a4 4 0 0 1-.873 0a.465.465 0 0 1-.396-.373l-.22-1.035a.5.5 0 0 0-.643-.37l-1.006.325a.46.46 0 0 1-.52-.157a4 4 0 0 1-.44-.758a.46.46 0 0 1 .126-.529l.785-.708a.5.5 0 0 0 0-.742l-.785-.71a.46.46 0 0 1-.125-.528q.179-.406.438-.758a.46.46 0 0 1 .52-.156l1.007.326a.5.5 0 0 0 .642-.371l.22-1.036a.465.465 0 0 1 .397-.373Q14.778 11 15 11m0 3a1 1 0 1 0 0 2a1 1 0 0 0 0-2M7.499 1q.455 0 .892.063l.288.045l.073.02a.5.5 0 0 1 .326.368l.395 1.844a.5.5 0 0 0 .642.37l1.792-.58l.073-.018a.5.5 0 0 1 .461.168c.51.598.915 1.29 1.184 2.046a.5.5 0 0 1-.137.538l-1.4 1.265a.5.5 0 0 0 0 .742l1.4 1.264a.5.5 0 0 1 .137.538a6.5 6.5 0 0 1-1.184 2.046a.5.5 0 0 1-.534.15l-1.792-.58a.5.5 0 0 0-.642.371l-.395 1.843a.5.5 0 0 1-.4.388q-.57.107-1.18.109c-.404 0-.8-.04-1.18-.11a.5.5 0 0 1-.4-.387l-.393-1.843a.5.5 0 0 0-.642-.37l-1.793.58a.5.5 0 0 1-.534-.151a6.5 6.5 0 0 1-1.184-2.046a.5.5 0 0 1 .137-.538l1.4-1.264a.5.5 0 0 0 .072-.661l-.072-.081l-1.4-1.265a.5.5 0 0 1-.137-.538A6.5 6.5 0 0 1 2.556 3.28l.052-.052a.5.5 0 0 1 .482-.098l1.793.58a.5.5 0 0 0 .642-.37l.394-1.844l.021-.072a.5.5 0 0 1 .377-.316Q6.891 1.001 7.5 1m0 1q-.342 0-.674.043l-.321 1.506a1.5 1.5 0 0 1-1.93 1.113L3.11 4.188q-.407.537-.676 1.166L3.58 6.387l.116.116a1.5 1.5 0 0 1-.116 2.11L2.434 9.645c.178.417.406.808.676 1.165l1.464-.472a1.5 1.5 0 0 1 1.93 1.113l.321 1.504q.333.043.674.045q.34-.002.673-.045l.322-1.504a1.5 1.5 0 0 1 1.93-1.113l1.462.473c.27-.358.498-.749.675-1.166L11.42 8.613a1.5 1.5 0 0 1 0-2.226l1.142-1.033a5.5 5.5 0 0 0-.675-1.166l-1.462.474a1.5 1.5 0 0 1-1.93-1.113l-.322-1.506A6 6 0 0 0 7.499 2m0 3.25a2.25 2.25 0 1 1 0 4.5a2.25 2.25 0 0 1 0-4.5m0 1a1.25 1.25 0 1 0 .002 2.501A1.25 1.25 0 0 0 7.5 6.25" /></svg>
+                            <h4>
+                                Funcionamiento interno
+                            </h4>
+                        </div>
                         <p>
-                            El proyecto se dividió en los componentes Aside y Chats para organizar mejor las responsabilidades.
-                            Cada página también es un componente con una función específica. Además, se creó un archivo '.css'
-                            por componente para mantener los estilos ordenados y facilitar su mantenimiento.
+                            Si no hay sesión activa, el usuario es redirigido al login.
+                        </p>
+                        <p>
+                            Los datos y mensajes se guardan en localStorage para mantener la sesión tras recargar.
+                        </p>
+                        <p>
+                            Una vez logueado, puede chatear o agregar nuevos contactos.
                         </p>
                     </div>
-                    <div className="tecnic-desc">
-                        <h4>
-                            Observaciones personales
-                        </h4>
-                        <p>
-                            Personalmente este proyecto significó un gran desafío que me permitió poner en práctica la teoría vista hasta el momento
-                            como así también implicó investigar y aprender sobre otras funcionalidades útiles (como convertir una imagen a string).
-                        </p>
+                    <div className="tecnic-desc right-containers">
+                        <div className="tecnic-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 48 48"><defs><mask id="IconifyId19c9507135e9d6dd01"><g fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="4"><path stroke-linecap="round" d="M22 9H11a3 3 0 0 0-3 3v21h32V22" /><path fill="#555" d="M4 33h40v2a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6z" /><path stroke-linecap="round" d="m33 7l-4 4l4 4m6-8l4 4l-4 4" /></g></mask></defs><path fill="#B8BEDA" d="M0 0h48v48H0z" mask="url(#IconifyId19c9507135e9d6dd01)" /></svg>
+                            <h4>
+                                Desiciones de desarrollo
+                            </h4>
+                        </div>
+                        <ul>
+                            <li>
+                                Aplicación separada en componentes específicos (Aside, Chats).
+                            </li>
+                            <li>
+                                Un archivo CSS por componente.
+                            </li>
+                            <li>
+                                Página de error 404 personalizada.
+                            </li>
+                            <li>
+                                Diseño responsive.
+                            </li>
+                        </ul>
                     </div>
                     <div className="tecnic-desc">
-                        <h4>
-                            Dificultades
-                        </h4>
+                        <div className="tecnic-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none"><path d="M16.5 7.5a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2z" /><path stroke="#B8BEDA" stroke-linecap="square" stroke-width="2" d="M16.5 7.5a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0ZM20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2z" /></g></svg>
+                            <h4>
+                                Observaciones personales
+                            </h4>
+                        </div>
+
+                        <p>
+                            Fue un proyecto desafiante que me permitió aplicar conocimientos y aprender nuevas funcionalidades,
+                            como el manejo de imágenes en formato string.
+                        </p>
+                    </div>
+                    <div className="tecnic-desc right-containers">
+                        <div className="tecnic-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="#B8BEDA" stroke-width="1.5"><path d="M16 15a7 7 0 1 1-14 0a7 7 0 0 1 14 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="m12 8.5l-.531-1.329c-.16-.397-.24-.596-.346-.761a2 2 0 0 0-1.288-.872C9.643 5.5 9.428 5.5 9 5.5s-.643 0-.835.038a2 2 0 0 0-1.288.872c-.107.165-.186.364-.345.761L6 8.5" /><path stroke-linecap="round" d="M22 7.5L20.5 6m0 0L19 4.5M20.5 6L19 7.5M20.5 6L22 4.5" /><path stroke-linecap="round" stroke-linejoin="round" d="M17 6c-3 0-2.59-2.56-5.14-3.733C9.62 1.237 8.77 3.407 9.052 5" /></g></svg>
+                            <h4>
+                                Dificultades
+                            </h4>
+                        </div>
+
                         <p>
                             Una de las mayores desafíos fue guardar en los datos y mensajes de los usuarios en el almacenamiento interno del navegador para que, al recargar la página, estos datos no desaparezcan.
                         </p>
