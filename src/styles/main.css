@@ -325,4 +325,10 @@ li small{
     .footer-chat-mobile svg {
         width: 100%;
     }
+    .footer-chat-mobile a {
+        width: 30px;
+        background-color: var(--dark-800);
+        padding: 5px;
+        border-radius: 10px;
+    }
 }

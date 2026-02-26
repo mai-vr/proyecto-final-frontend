@@ -45,8 +45,10 @@ const Login = () => {
                     Comenzá a chatear con tus contactos
                 </p>
                 <form onSubmit={handleSubmit}>
-                    <input type="email" placeholder="Escribir email..." onChange={handleChangeEmail}/>
-                    <input type="password" placeholder="Escribir contraseña..." onChange={handleChangePassword} />
+                    <label htmlFor="email">Email</label>
+                    <input type="email" placeholder="Ingresa un email" onChange={handleChangeEmail}/>
+                    <label htmlFor="password">Contraseña</label>
+                    <input type="password" placeholder="Ingresa una contraseña" onChange={handleChangePassword} />
                     <button>
                         Iniciar sesión
                     </button>

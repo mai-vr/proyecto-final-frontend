@@ -66,6 +66,12 @@
     gap: 1rem;
 }
 
+.login label {
+    color: var(--grey-200);
+    font-weight: 600;
+    font-size: 15px;
+}
+
 .login input {
     padding: 10px;
     border-radius: 10px;
