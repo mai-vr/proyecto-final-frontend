@@ -11,7 +11,7 @@ const Chat = () => {
 
     const chatBodyRef = useRef(null) // Referencia para mostrar siempre el último mensaje.
 
-    const {selectedUser, handleNewMessages, logout } = useContext(ChatContext)
+    const {selectedUser, handleNewMessages, logout, showAside, setShowAside } = useContext(ChatContext)
     const navigate = useNavigate()
 
     // Manipular el input.
@@ -112,6 +112,9 @@ const Chat = () => {
                 <a href="/addcontact">
                     <svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24"><path fill="#F5F7FF" d="M19 11h-6V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2"/></svg>
                 </a>
+                <button onClick={()=> setShowAside(!showAside)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="#F5F7FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M16 2v2M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M8 2v2"/><circle cx="12" cy="11" r="3"/><rect width="18" height="18" x="3" y="4" rx="2"/></g></svg>
+                </button>
             </footer>
         </section>
         </>

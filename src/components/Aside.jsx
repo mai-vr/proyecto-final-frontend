@@ -7,7 +7,7 @@ const Aside = () => {
 
     const [search, setSearch] = useState("")
 
-    const { users, handleSelectedUser, logout, loggedUser } = useContext(ChatContext)
+    const { users, handleSelectedUser, logout, loggedUser, showAside, setShowAside } = useContext(ChatContext)
     const navigate = useNavigate()
 
     const handleChange = (event) => {
@@ -16,6 +16,7 @@ const Aside = () => {
 
     const handleClick = (id) => {
         handleSelectedUser(id)
+        setShowAside(!showAside)
     }
 
     const handleLogout = () => {
@@ -31,7 +32,7 @@ const Aside = () => {
     // Filtro los usuarios en torno a: primero generar el nombre completo y a ese string que genero le pregunto si contiene lo que busco.
 
     return (
-        <aside>
+        <aside className={`${showAside ? 'show' : ''}`}>
             <div className="header-aside">
                 <div className="user-profile">
                     <img src={loggedUser.image ? loggedUser.image : defaultPhoto} alt="profile photo" />

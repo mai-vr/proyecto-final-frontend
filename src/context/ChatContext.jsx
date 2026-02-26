@@ -113,8 +113,11 @@ const ChatProvider = ({ children }) => {
         return true
     }
 
+    const [showAside, setShowAside] = useState(false) // Determinar si mostrar o no la lista de contactos en dispositivos móviles.
+
+
     return (
-        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, login, addContact, handleActiveUser, logout, loggedUser }}> 
+        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, login, addContact, handleActiveUser, logout, loggedUser, showAside, setShowAside }}> 
             {children}
         </ChatContext.Provider>
     )
