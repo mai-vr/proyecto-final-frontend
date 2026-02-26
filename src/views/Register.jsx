@@ -16,18 +16,42 @@ const Register = () => {
         password: '',
         address: {country: ''},
         image: '',
-        messages: []
     }
 
     const [newUser, setNewUser] = useState(newUserData)
+    const [errorName, setErrorName] = useState('')
+    const [errorPassword, setErrorPassword] = useState('')
 
     const handleChangeUser = (e) => {
         const { name, value } = e.target
+
+        if (e.target.name === "firstName") {
+            if (e.target.value.length < 3) {
+                setNewUser({...newUser, firstName: null})
+                return
+            }
+        } else if (e.target.name === "password") {
+            if (e.target.value.length < 6) {
+                setNewUser({...newUser, password: null})
+                return
+            }
+        }
+        
         setNewUser({...newUser, [name]: value})
     }
 
     const handleSubmitUser = (e) => {
         e.preventDefault()
+
+        if (newUser.firstName === null) {
+            setErrorName('Nombre inválido, debe contener al menos 3 letras')
+            return
+        }
+
+        if (newUser.password === null) {
+            setErrorPassword('Contraseña inválida, debe contener al menos 6 caracteres')
+            return
+        }
 
         const parsedUsers = JSON.parse(localStorage.getItem('usersLogged'))
 
@@ -51,13 +75,17 @@ const Register = () => {
                 </p>
                 <form onSubmit={handleSubmitUser}>
                     <label htmlFor="name">Nombre</label>
-                    <input type="text" name="firstName" placeholder="Ingresa tu nombre" required onChange={handleChangeUser} minLength='3'/>
+                    <input type="text" name="firstName" placeholder="Ingresa tu nombre" required onChange={handleChangeUser} />
+                    {/* {newUser.firstName === null && <p className="error-font">El nombre debe contener al menos 3 letras</p>} */}
+                    {errorName && <p>{errorName}</p>}
                     <label htmlFor="lastName">Apellido</label>
                     <input type="text" name="lastName" placeholder="Ingresa tu apellido" required onChange={handleChangeUser}/>
                     <label htmlFor="email">Email</label>
                     <input type="email" name="email" placeholder="Ingresa tu email" required onChange={handleChangeUser}/>
                     <label htmlFor="password">Contraseña</label>
-                    <input type="password" name="password" placeholder="Ingresa una contraseña" required onChange={handleChangeUser} minLength='6'/>
+                    <input type="password" name="password" placeholder="Ingresa una contraseña" required onChange={handleChangeUser} />
+                    {/* {newUser.password === null && <p className="error-font">La contraseña debe contener al menos 6 caracteres</p>} */}
+                    {errorPassword && <p>{errorPassword}</p>}
                     <label htmlFor="country">País</label>
                     <input type="text" name="country" placeholder="Ingresa un país" onChange={handleChangeUser}/>
                     <button>
