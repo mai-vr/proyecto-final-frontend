@@ -40,6 +40,21 @@ const Register = () => {
         setNewUser({...newUser, [name]: value})
     }
 
+    const handleChangeImage = (e) => {
+        const image = e.target.files[0]
+        if (!image) return
+        const reader = new FileReader()
+
+        reader.onloadend = () => {
+            setNewUser(prev => ({
+                ...prev,
+                image: reader.result
+            }))
+
+        }
+        reader.readAsDataURL(image)
+    }
+
     const handleSubmitUser = (e) => {
         e.preventDefault()
 
@@ -86,6 +101,8 @@ const Register = () => {
                     <input type="password" name="password" placeholder="Ingresa una contraseña" required onChange={handleChangeUser} />
                     {/* {newUser.password === null && <p className="error-font">La contraseña debe contener al menos 6 caracteres</p>} */}
                     {errorPassword && <p>{errorPassword}</p>}
+                    <label htmlFor="image">Foto de perfil</label>
+                    <input type="file" name="image" accept=".png, .jpeg, .jpg" onChange={handleChangeImage} />
                     <label htmlFor="country">País</label>
                     <input type="text" name="country" placeholder="Ingresa un país" onChange={handleChangeUser}/>
                     <button>
