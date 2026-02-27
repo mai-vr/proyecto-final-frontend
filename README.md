@@ -17,15 +17,11 @@ En caso de ingresar un path que no sea correcto existe una página de error 404 
 En la página /about se encuentra una descripción general del proyecto, dificultades encontradas y observaciones personales. 
 La totalidad del proyecto cuenta con una estética basada en colores fríos y oscuros en general que se mantiene uniforme en toda la aplicación. 
 
----
-
 ## Tecnologías utilizadas
 - HTML - Maquetación del sitio web.
 - CSS - Estilos de cada componente del sitio.
 - JavaScript - Lógica interna y manipulación de datos.
 - React - Uso de estados y funciones globales, desarrollo de interfaces dinámicas.
-
----
 
 ## Instalación
 Para ejecutar el proyecto de manera local es necesario primero clonar el respositorio: 
@@ -45,8 +41,6 @@ Por último ejecutar el proyecto en el navegador:
 npm run dev
 ```
 
----
-
 ## Deploy en Vercel
 La aplicación se desplegó utilizando Vercel, una plataforma de hosting.
 Para realizar el deploy es necesario:
@@ -54,8 +48,8 @@ Para realizar el deploy es necesario:
 2. Vincular la cuenta de GitHub e importar el repositorio del proyecto.
 3. Hacer click en 'deploy'.
 Una vez hecho esto, Vercel genera una URL pública para ver el proyecto.
+[Proyecto desplegado](https://chat-app-nine-xi-50.vercel.app/login)
 
----
 
 ## Estructura del proyecto
 La carpeta src contiene el siguiente código fuente:
