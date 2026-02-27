@@ -13,12 +13,12 @@ Al ingresar a la página el usuario es automaticamente redirijido a iniciar sesi
 > Contraseña: pepe123
 
 **_/register_**  
-En caso de no poseer cuenta, el usuario se puede registrar compleando los campos requeridos (los cuales cuentan con validaciones básicas). 
+En caso de no poseer cuenta, el usuario se puede registrar compleando los campos requeridos (los cuales cuentan con validaciones básicas).   
 **_/_**  
 Finalmente, se ingresa a la página principal de la aplicación donde se encuentran los contactos con los que puede chatear y cuyos mensajes persistiran al recargar la página.
-En la parte superior del componente Aside se encuentran dos botones: uno para cerrar sesión y otro para agregar un nuevo contacto.
+En la parte superior del componente Aside se encuentran dos botones: uno para cerrar sesión y otro para agregar un nuevo contacto.  
 **_/notfound_**  
-En caso de ingresar un path que no sea correcto existe una página de error 404 con opciones sobre cómo seguir para mejorar la experiencia del usuario.
+En caso de ingresar un path que no sea correcto existe una página de error 404 con opciones sobre cómo seguir para mejorar la experiencia del usuario.  
 **_/about_**  
 En la página /about se encuentra una descripción general del proyecto, dificultades encontradas y observaciones personales. 
 La totalidad del proyecto cuenta con una estética basada en colores fríos y oscuros en general que se mantiene uniforme en toda la aplicación. 
