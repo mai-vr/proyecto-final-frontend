@@ -54,11 +54,16 @@ const AddContact = () => {
                     Agrega un nuevo contacto para comenzar a chatear
                 </h4>
 
-                <form onSubmit={handleSubmit} action="upload.php" method="POST" encType="multipart/form-data">
-                    <input type="text" name="name" required placeholder="Escribir un nombre..." onChange={handleChangeContact}/>
-                    <input type="text" name="lastName" placeholder="Escribir un apellido..." onChange={handleChangeContact} />
-                    <input type="email" name="email" required placeholder="Escribir un email..." onChange={handleChangeContact}/>
-                    <input type="text" name="country" placeholder="Escribir país..." onChange={handleChangeContact} />
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="name">Nombre</label>
+                    <input type="text" name="name" required placeholder="Ingresar un nombre" onChange={handleChangeContact}/>
+                    <label htmlFor="lastName">Apellido (opcional)</label>
+                    <input type="text" name="lastName" placeholder="Ingresar un apellido" onChange={handleChangeContact} />
+                    <label htmlFor="email">Email</label>
+                    <input type="email" name="email" required placeholder="Ingresar un email" onChange={handleChangeContact}/>
+                    <label htmlFor="country">Pais (opcional)</label>
+                    <input type="text" name="country" placeholder="Ingresar un país" onChange={handleChangeContact} />
+                    <label htmlFor="image">Foto de perfil (opcional)</label>
                     <input type="file" name="image" accept=".png, .jpeg, .jpg" onChange={handleChangeImage} />
                     <button>
                         Agregar

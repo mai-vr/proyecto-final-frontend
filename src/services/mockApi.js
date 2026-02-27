@@ -128,21 +128,4 @@ const users = [
   },
 ];
 
-const usersLogged = [
-  {
-    id: 10,
-    firstName: "Timothée",
-    lastName: "Swift",
-    email: "timothee.swift@gmail.com",
-    password: "123456",
-    address: { country: "France" },
-    status: "offline",
-    image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Timothee",
-    // messages: [
-    //   { author: "Timothée", text: "Nos vemos mañana", time: "22:10" },
-    //   { author: "me", text: "Perfecto!", time: "22:11" }
-    // ]
-  }
-]
-
-export { users, usersLogged };
+export { users };

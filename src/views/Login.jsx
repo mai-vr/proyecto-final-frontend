@@ -30,7 +30,7 @@ const Login = () => {
             setError(true)
             return 
         }
-
+        
         handleActiveUser({email, password})
         navigate('/')
     }

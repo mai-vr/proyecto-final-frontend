@@ -92,7 +92,7 @@ const Register = () => {
                     <label htmlFor="name">Nombre</label>
                     <input type="text" name="firstName" placeholder="Ingresa tu nombre" required onChange={handleChangeUser} />
                     {/* {newUser.firstName === null && <p className="error-font">El nombre debe contener al menos 3 letras</p>} */}
-                    {errorName && <p>{errorName}</p>}
+                    {errorName && <p className="error-font">{errorName}</p>}
                     <label htmlFor="lastName">Apellido</label>
                     <input type="text" name="lastName" placeholder="Ingresa tu apellido" required onChange={handleChangeUser}/>
                     <label htmlFor="email">Email</label>
@@ -100,7 +100,7 @@ const Register = () => {
                     <label htmlFor="password">Contraseña</label>
                     <input type="password" name="password" placeholder="Ingresa una contraseña" required onChange={handleChangeUser} />
                     {/* {newUser.password === null && <p className="error-font">La contraseña debe contener al menos 6 caracteres</p>} */}
-                    {errorPassword && <p>{errorPassword}</p>}
+                    {errorPassword && <p className="error-font">{errorPassword}</p>}
                     <label htmlFor="image">Foto de perfil</label>
                     <input type="file" name="image" accept=".png, .jpeg, .jpg" onChange={handleChangeImage} />
                     <label htmlFor="country">País</label>

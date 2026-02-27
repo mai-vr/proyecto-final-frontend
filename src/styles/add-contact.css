@@ -37,7 +37,7 @@
 }
 
 .add-contact-cont {
-    width: 400px;
+    width: 430px;
     background-color: var(--dark-900);
     padding: 40px;
     border-radius: 16px;
@@ -65,6 +65,13 @@
     color: var(--grey-200);
     font-weight: 400;
     margin-top: 10px;
+}
+
+.add-contact label {
+    color: var(--grey-200);
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 1rem;
 }
 
 .add-contact input {
@@ -97,4 +104,14 @@
 .add-contact button:hover {
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba(154, 58, 228, 0.4);
+}
+
+@media (max-width: 800px) {
+    .add-contact-cont {
+        width: 350px;
+    }
+    .add-contact h1 {
+        font-size: 28px;
+        margin-bottom: 1rem;
+    }
 }

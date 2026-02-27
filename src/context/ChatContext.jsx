@@ -1,8 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { users as mockUsers } from '../services/mockApi'
-import { usersLogged as usLog } from '../services/mockApi'
 
-const ChatContext = createContext() 
+const ChatContext = createContext()
 
 // Quiero que toda la app conozca los contactos.
 const ChatProvider = ({ children }) => {
@@ -53,7 +52,7 @@ const ChatProvider = ({ children }) => {
             return JSON.parse(savedUsers)
         }
 
-        return mockUsers 
+        return mockUsers
     }
     const [users, setUsers] = useState(totalUsers)
 
@@ -65,28 +64,29 @@ const ChatProvider = ({ children }) => {
             // Paso el objeto a array para poder usar '.find' luego.
             return [savedJson]
         }
-        return usLog
+        return []
     }
 
     const login = (userData) => {
-        
+
         const foundUser = usLogged().find(us => us.email === userData.email)
-        
+
         if (!foundUser) {
             return false
         }
+
         if (foundUser.password === userData.password) {
             setLoggedUser(foundUser)
             localStorage.setItem('usersLogged', JSON.stringify(foundUser))
             return true
         }
-
+        return false
     }
 
     const messagesSaved = (newMessages) => {
         setUsers({
-            ...users, 
-            messages: newMessages 
+            ...users,
+            messages: newMessages
         })
         return users
     }
@@ -113,11 +113,10 @@ const ChatProvider = ({ children }) => {
         return true
     }
 
-    const [showAside, setShowAside] = useState(false) // Determinar si mostrar o no la lista de contactos en dispositivos móviles.
-
+    const [showAside, setShowAside] = useState(true) // Determinar si mostrar o no la lista de contactos en dispositivos móviles.
 
     return (
-        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, login, addContact, handleActiveUser, logout, loggedUser, showAside, setShowAside }}> 
+        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, login, addContact, handleActiveUser, logout, loggedUser, showAside, setShowAside }}>
             {children}
         </ChatContext.Provider>
     )
