@@ -7,19 +7,19 @@ Si bien se trata de un proyecto académico, fue diseñado buscando replicar func
 
 ## Sobre la app
 
-**_/login_**
+**_/login_**  
 Al ingresar a la página el usuario es automaticamente redirijido a iniciar sesión en donde puede ingresar su correo y contraseña en caso de tener una cuenta o utilizar el usuario por defecto a fin de optimizar este paso: 
-> Correo: timothee@gmail.com
+> Correo: timothee@gmail.com  
 > Contraseña: pepe123
 
-**_/register_**
+**_/register_**  
 En caso de no poseer cuenta, el usuario se puede registrar compleando los campos requeridos (los cuales cuentan con validaciones básicas). 
-**_/_**
+**_/_**  
 Finalmente, se ingresa a la página principal de la aplicación donde se encuentran los contactos con los que puede chatear y cuyos mensajes persistiran al recargar la página.
 En la parte superior del componente Aside se encuentran dos botones: uno para cerrar sesión y otro para agregar un nuevo contacto.
-**_/notfound_**
+**_/notfound_**  
 En caso de ingresar un path que no sea correcto existe una página de error 404 con opciones sobre cómo seguir para mejorar la experiencia del usuario.
-**_/about_**
+**_/about_**  
 En la página /about se encuentra una descripción general del proyecto, dificultades encontradas y observaciones personales. 
 La totalidad del proyecto cuenta con una estética basada en colores fríos y oscuros en general que se mantiene uniforme en toda la aplicación. 
 
@@ -53,7 +53,7 @@ Para realizar el deploy es necesario:
 1. Crear una cuenta en [Vercel](https://vercel.com)
 2. Vincular la cuenta de GitHub e importar el repositorio del proyecto.
 3. Hacer click en 'deploy'.
-Una vez hecho esto, Vercel genera una URL pública para ver el proyecto.
+Una vez hecho esto, Vercel genera una URL pública para ver el proyecto.  
 [Proyecto desplegado](https://chat-app-nine-xi-50.vercel.app/login)
 
 
