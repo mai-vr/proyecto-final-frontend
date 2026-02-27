@@ -13,10 +13,7 @@ const About = () => {
                         </h2>
                     </div>
                     <p>
-                        Este proyecto es una simulación de una aplicación para chatear realizada como proyecto final de la
-                        Diplomatura en Desarrollo Full Stack de la UTN. <br />
-                        Si bien se trata de un proyecto académico, fue diseñado buscando replicar funcionalidades y estilos
-                        de aplicaciones de chat reales, con una interfaz clara y ordenada.
+                        Es una simulación de una aplicación para chatear que incluye inicio de sesión con validaciones, registro en caso de no poseer cuenta, y una agenda de contactos con la que chatear.
                     </p>
                 </div>
                 <div className="about-info-grid">
