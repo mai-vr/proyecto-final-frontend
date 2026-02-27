@@ -16,7 +16,7 @@ const Aside = () => {
 
     const handleClick = (id) => {
         handleSelectedUser(id)
-        setShowAside(!showAside)
+        setShowAside(!showAside) // Cuando en un celular el usuario clickee un contacto se dejará de mostrar el aside y se mostrará el chat con ese contacto.
     }
 
     const handleLogout = () => {
@@ -24,15 +24,13 @@ const Aside = () => {
         navigate('/login')
     }
 
-    // Normalizar datos (trabajar con todo en lower case).
-    const filteredUsers = users.filter((user) => {
+    const filteredUsers = users.filter((user) => {  // Lista de contactos filtrada en base a nombre y apellido.
         const fullName = `${user.firstName} ${user.lastName}`
-        return fullName.toLowerCase().includes(search.toLowerCase())
+        return fullName.toLowerCase().includes(search.toLowerCase()) // Normalización de datos.
     })
-    // Filtro los usuarios en torno a: primero generar el nombre completo y a ese string que genero le pregunto si contiene lo que busco.
 
     return (
-        <aside className={`${showAside ? 'show' : ''}`}>
+        <aside className={`${showAside ? 'show' : ''}`}> 
             <div className="header-aside">
                 <div className="user-profile">
                     <img src={loggedUser.image ? loggedUser.image : defaultPhoto} alt="profile photo" />

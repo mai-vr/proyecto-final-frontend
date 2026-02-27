@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import '../styles/login.css'
 
 const Login = () => {
+    
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
@@ -11,20 +12,20 @@ const Login = () => {
     const {login, handleActiveUser} = useContext(ChatContext)
     const navigate = useNavigate()
 
-    const handleChangeEmail = (event) => {
-        setEmail(event.target.value.toLowerCase())
-    }
-
-    const handleChangePassword = (event) => {
-        setPassword(event.target.value.toLowerCase())
+    const handleChange = (event) => {
+        
+        if (event.target.name === "email") {
+            setEmail(event.target.value)
+        } else if (event.target.name === "password") {
+            setPassword(event.target.value)
+        }
     }
 
     const handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault() // Controlar el recargar la página.
         setError(null)
         
-        // const userActive = usLogged().find(us => us.email === email)
-        const response = login({email, password})
+        const response = login({email, password}) // 'login' es una función del contexto que verifica los datos ingresados.
         
         if (!response) {
             setError(true)
@@ -46,9 +47,9 @@ const Login = () => {
                 </p>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email">Email</label>
-                    <input type="email" placeholder="Ingresa un email" onChange={handleChangeEmail}/>
+                    <input type="email" name="email" placeholder="Ingresa un email" onChange={handleChange}/>
                     <label htmlFor="password">Contraseña</label>
-                    <input type="password" placeholder="Ingresa una contraseña" onChange={handleChangePassword} />
+                    <input type="password" name="password" placeholder="Ingresa una contraseña" onChange={handleChange} />
                     <button>
                         Iniciar sesión
                     </button>

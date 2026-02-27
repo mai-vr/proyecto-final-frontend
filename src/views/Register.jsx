@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom"
 import '../styles/register.css'
 
 const Register = () => {
-    
-    const {users, handleActiveUser} = useContext(ChatContext)
+
+    const { users, login, handleActiveUser } = useContext(ChatContext)
     const navigate = useNavigate()
 
     const newUserData = {
@@ -14,7 +14,7 @@ const Register = () => {
         lastName: '',
         email: '',
         password: '',
-        address: {country: ''},
+        address: { country: '' },
         image: '',
     }
 
@@ -25,19 +25,19 @@ const Register = () => {
     const handleChangeUser = (e) => {
         const { name, value } = e.target
 
-        if (e.target.name === "firstName") {
+        if (e.target.name === "firstName") {    // Si el nombre y/o contraseña son incorrectos no se guardan.
             if (e.target.value.length < 3) {
-                setNewUser({...newUser, firstName: null})
+                setNewUser({ ...newUser, firstName: null })
                 return
             }
         } else if (e.target.name === "password") {
             if (e.target.value.length < 6) {
-                setNewUser({...newUser, password: null})
+                setNewUser({ ...newUser, password: null })
                 return
             }
         }
-        
-        setNewUser({...newUser, [name]: value})
+
+        setNewUser({ ...newUser, [name]: value }) // Luego, settear los valores en base a la etiqueta del input.
     }
 
     const handleChangeImage = (e) => {
@@ -58,7 +58,7 @@ const Register = () => {
     const handleSubmitUser = (e) => {
         e.preventDefault()
 
-        if (newUser.firstName === null) {
+        if (newUser.firstName === null) {   // Avisar el error al ingresar el nombre y/o contraseña respectivamente.
             setErrorName('Nombre inválido, debe contener al menos 3 letras')
             return
         }
@@ -68,13 +68,13 @@ const Register = () => {
             return
         }
 
-        const parsedUsers = JSON.parse(localStorage.getItem('usersLogged'))
+        const parsedUsers = [JSON.parse(localStorage.getItem('usersLogged'))] || [] // Obtener la lista de usuarios loggeados que está en el local storage.
 
-        const savedLogged = [parsedUsers] || []
-        savedLogged.push(newUser)
-        
-        localStorage.setItem('usersLogged', JSON.stringify(savedLogged))
+        const savedLogged = [...parsedUsers, newUser]
 
+        localStorage.setItem('usersLogged', JSON.stringify(savedLogged))    
+
+        login(newUser)
         handleActiveUser(newUser)
         navigate('/')
     }
@@ -91,20 +91,18 @@ const Register = () => {
                 <form onSubmit={handleSubmitUser}>
                     <label htmlFor="name">Nombre</label>
                     <input type="text" name="firstName" placeholder="Ingresa tu nombre" required onChange={handleChangeUser} />
-                    {/* {newUser.firstName === null && <p className="error-font">El nombre debe contener al menos 3 letras</p>} */}
                     {errorName && <p className="error-font">{errorName}</p>}
                     <label htmlFor="lastName">Apellido</label>
-                    <input type="text" name="lastName" placeholder="Ingresa tu apellido" required onChange={handleChangeUser}/>
+                    <input type="text" name="lastName" placeholder="Ingresa tu apellido" required onChange={handleChangeUser} />
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" placeholder="Ingresa tu email" required onChange={handleChangeUser}/>
+                    <input type="email" name="email" placeholder="Ingresa tu email" required onChange={handleChangeUser} />
                     <label htmlFor="password">Contraseña</label>
                     <input type="password" name="password" placeholder="Ingresa una contraseña" required onChange={handleChangeUser} />
-                    {/* {newUser.password === null && <p className="error-font">La contraseña debe contener al menos 6 caracteres</p>} */}
                     {errorPassword && <p className="error-font">{errorPassword}</p>}
                     <label htmlFor="image">Foto de perfil</label>
                     <input type="file" name="image" accept=".png, .jpeg, .jpg" onChange={handleChangeImage} />
                     <label htmlFor="country">País</label>
-                    <input type="text" name="country" placeholder="Ingresa un país" onChange={handleChangeUser}/>
+                    <input type="text" name="country" placeholder="Ingresa un país" onChange={handleChangeUser} />
                     <button>
                         Enviar
                     </button>

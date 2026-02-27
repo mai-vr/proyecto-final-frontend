@@ -5,25 +5,6 @@
     font-family: var(--primary-font);
 }
 
-:root {
-    --dark-900: #050816;
-    --dark-800: #0B0F2A;
-    --dark-700: #121736;
-    --dark-600: #1B1F45;
-
-    --violet-500: #7B5CFF;
-    --violet-400: #9B6DFF;
-    --violet-300: #C084FC;
-
-    --indigo-500: #5C6CFF;
-    --indigo-400: #7FA0FF;
-    
-    --grey-200:  #B8BEDA;
-    --grey-100:  #F5F7FF;
-
-    --primary-font: "Roboto", sans-serif;
-}
-
 .not-found {
     background: linear-gradient(100deg, var(--dark-600), var(--dark-800));
     height: 100vh;
@@ -76,4 +57,15 @@
 
 .next-option svg {
     width: 30px;
+}
+
+@media (max-width: 600px) {
+    .not-found h4 {
+        margin-bottom: 3.5rem;
+    }
+    .next-option {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
 }

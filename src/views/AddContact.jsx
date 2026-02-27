@@ -18,7 +18,7 @@ const AddContact = () => {
 
     const handleChangeContact = (e) => {
         const { name, value } = e.target
-        setNewContact({...newContact, [name]: value})
+        setNewContact({...newContact, [name]: value}) // Agrego al estado los valores ingresados según la etiqueta del input.
     }
 
     const handleChangeImage = (e) => {
@@ -33,7 +33,7 @@ const AddContact = () => {
                 image: reader.result
             }))
         }
-        reader.readAsDataURL(file)
+        reader.readAsDataURL(file)  // Pasa la imágen a string para guardarla en el localStorage junto con el resto de los datos del usuario.
         console.log(newContact.image)
     }
 

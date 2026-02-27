@@ -42,7 +42,7 @@
     display: flex;
 }
 
-/* Aside styles */
+/*----------- Estilos 'Aside'---------- */
 
 aside {
     background-color: var(--dark-900);
@@ -165,6 +165,7 @@ aside ul li small {
 aside ul li img {
     border-radius: 50%;
     width: 50px;
+    height: 50px;
     margin-right: 10px;
 }
 
@@ -177,7 +178,7 @@ li small{
     display: block;
 }
 
-/* Chat styles */
+/* ------ Estilos de 'Chats' -------- */
 .chat {
     display: flex;
     flex-direction: column;
@@ -192,11 +193,11 @@ li small{
     background-color: var(--dark-900);
     color: var(--grey-100);
     padding: 10px 10px 10px 20px;
-    /* border-bottom: 1.5px solid var(--violet-500); */
 }
 
 .chat header img {
     width: 50px;
+    height: 50px;
     border-radius: 50%;
 }
 

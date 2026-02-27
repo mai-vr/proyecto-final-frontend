@@ -3,7 +3,6 @@ import { users as mockUsers } from '../services/mockApi'
 
 const ChatContext = createContext()
 
-// Quiero que toda la app conozca los contactos.
 const ChatProvider = ({ children }) => {
 
     const [selectedUser, setSelectedUser] = useState(null)
@@ -12,15 +11,15 @@ const ChatProvider = ({ children }) => {
         if (savedLogged === undefined || !savedLogged) {
             return null
         }
-        return JSON.parse(savedLogged)
+        return JSON.parse(savedLogged)  // Inicializar el estado con los usuarios loggeados guardados en el local storage.
     })
 
-    const handleActiveUser = (user) => {
-        setLoggedUser(user)
+    const handleActiveUser = (user) => { // Funcion utilizada en los componentes 'login' y 'register' para mantener la sesión activa.
+        setLoggedUser(user) 
         localStorage.setItem('usersLogged', JSON.stringify(user))
     }
 
-    const handleSelectedUser = (id) => {
+    const handleSelectedUser = (id) => { // Usado en el 'aside' para encontrar al usuario en base al id.
         const foundUser = totalUsers().find(user => user.id === id)
         setSelectedUser(foundUser)
     }
@@ -34,7 +33,7 @@ const ChatProvider = ({ children }) => {
         // Mantener las propiedades de selectedUser y sólo modificar su propiedad 'messages'.
         const updatedSelectedUser = {
             ...selectedUser,
-            messages: [...selectedUser.messages, newM]
+            messages: [...selectedUser.messages, newM] // Mantener los mensajes al refrescar la página.
         }
         setSelectedUser(updatedSelectedUser)
 
@@ -46,7 +45,7 @@ const ChatProvider = ({ children }) => {
     }
 
     const totalUsers = () => {
-        const savedUsers = localStorage.getItem('users')
+        const savedUsers = localStorage.getItem('users') 
 
         if (savedUsers) {
             return JSON.parse(savedUsers)
@@ -54,10 +53,10 @@ const ChatProvider = ({ children }) => {
 
         return mockUsers
     }
-    const [users, setUsers] = useState(totalUsers)
+    const [users, setUsers] = useState(totalUsers) 
 
     const usLogged = () => {
-        const savedLoggedUsers = localStorage.getItem('usersLogged')
+        const savedLoggedUsers = localStorage.getItem('usersLogged') 
 
         if (savedLoggedUsers) {
             const savedJson = JSON.parse(savedLoggedUsers)
@@ -69,15 +68,15 @@ const ChatProvider = ({ children }) => {
 
     const login = (userData) => {
 
-        const foundUser = usLogged().find(us => us.email === userData.email)
-
+        const foundUser = usLogged().find(us => us.email === userData.email) // Acceder a todos los datos del usuario en base al email que ingresó al loggearse.
+        
         if (!foundUser) {
             return false
         }
 
         if (foundUser.password === userData.password) {
-            setLoggedUser(foundUser)
-            localStorage.setItem('usersLogged', JSON.stringify(foundUser))
+            setLoggedUser(foundUser)    // En 'aside' se usan otras propiedades del objeto (nombre, apellido, imagen).
+            localStorage.setItem('usersLogged', JSON.stringify(foundUser)) // Luego de verificar los datos se guardan en local storage.
             return true
         }
         return false
@@ -109,14 +108,14 @@ const ChatProvider = ({ children }) => {
 
         messagesSaved
 
-        localStorage.setItem('users', JSON.stringify(updatedUsers))
+        localStorage.setItem('users', JSON.stringify(updatedUsers)) // Actualizar la lista de contactos en el local storage.
         return true
     }
 
     const [showAside, setShowAside] = useState(true) // Determinar si mostrar o no la lista de contactos en dispositivos móviles.
 
     return (
-        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, login, addContact, handleActiveUser, logout, loggedUser, showAside, setShowAside }}>
+        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, handleActiveUser, login, addContact, logout, loggedUser, showAside, setShowAside }}>
             {children}
         </ChatContext.Provider>
     )

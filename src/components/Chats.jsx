@@ -6,7 +6,6 @@ import defaultProfile from "../assets/profileDefaultPhoto.jpg"
 const Chat = () => {
     
     const [text, setText] = useState("")
-    // const [messages, setMessages] = useState(mockUsers.messages)
     const [seeContacts, setSeeContacts] = useState(false)
 
     const chatBodyRef = useRef(null) // Referencia para mostrar siempre el último mensaje.
@@ -14,9 +13,8 @@ const Chat = () => {
     const {selectedUser, handleNewMessages, logout, showAside, setShowAside } = useContext(ChatContext)
     const navigate = useNavigate()
 
-    // Manipular el input.
     const handleChangeText = (event) => {
-        setText(event.target.value) // En 'text' voy a tener el último valor del input.
+        setText(event.target.value) // En 'text' voy a tener lo último que escribió el usuario en el input.
     }
 
     const handleKeyDown = (event) => {
@@ -29,32 +27,26 @@ const Chat = () => {
     const sendMessage = () => {
 
         if (text.length === 0){
-            return // Si no hay mensaje no ejecuto la función.
+            return 
         }
         
         const currentTime = new Date()
 
         const newMessage = {
-            // id: selectedUser.messages.length + 1,  
             author: "me",
             text: text,
             time: currentTime.getHours() + ":" + currentTime.getMinutes(),
         }
 
         handleNewMessages(newMessage)
-        setText("") // Limpiar el texto.    
+        setText("") // Limpiar el input para escribir mensajes.    
     }
 
     useEffect(() => {
-        if (chatBodyRef.current) { // Cuando enviamos un mensaje actual tiene un scroll top, queremos que el scroll top baje.
+        if (chatBodyRef.current) { // Cada vez que se manda un mensaje el scroll del chat queda en el último.
             chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight    
         }
     }, [sendMessage]) 
-    // Cuando se modifican los mensajes, se ejecuta lo del primer parámetro.
-
-    const handleClickContacts = () => {
-        setSeeContacts(!seeContacts)
-    }
 
     const handlClickLogout = () => {
         logout()

@@ -6,24 +6,7 @@
 }
 
 :root {
-    --dark-900: #050816;
-    --dark-800: #0B0F2A;
-    --dark-700: #121736;
-    --dark-600: #1B1F45;
-
-    --violet-500: #7B5CFF;
-    --violet-400: #9B6DFF;
-    --violet-300: #C084FC;
-
-    --indigo-500: #5C6CFF;
-    --indigo-400: #7FA0FF;
-    
-    --grey-200:  #B8BEDA;
-    --grey-100:  #F5F7FF;
-
     --red-100: #cc0000;
-
-    --primary-font: "Roboto", sans-serif;
 }
 
 .login {
