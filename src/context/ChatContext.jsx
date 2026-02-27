@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { users as mockUsers } from '../services/mockApi'
+import { usersLogged as usLog } from '../services/mockApi'
 
 const ChatContext = createContext()
 
@@ -15,6 +16,7 @@ const ChatProvider = ({ children }) => {
     })
 
     const handleActiveUser = (user) => { // Funcion utilizada en los componentes 'login' y 'register' para mantener la sesión activa.
+        
         setLoggedUser(user) 
         localStorage.setItem('usersLogged', JSON.stringify(user))
     }
@@ -63,7 +65,7 @@ const ChatProvider = ({ children }) => {
             // Paso el objeto a array para poder usar '.find' luego.
             return [savedJson]
         }
-        return []
+        return usLog // Cargar usuario por defecto para iniciar sesión.
     }
 
     const login = (userData) => {
@@ -115,7 +117,7 @@ const ChatProvider = ({ children }) => {
     const [showAside, setShowAside] = useState(true) // Determinar si mostrar o no la lista de contactos en dispositivos móviles.
 
     return (
-        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, handleActiveUser, login, addContact, logout, loggedUser, showAside, setShowAside }}>
+        <ChatContext.Provider value={{ users, selectedUser, handleNewMessages, handleSelectedUser, handleActiveUser, login, addContact, logout, loggedUser, showAside, setShowAside, usLogged }}>
             {children}
         </ChatContext.Provider>
     )

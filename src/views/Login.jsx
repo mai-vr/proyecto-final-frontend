@@ -9,7 +9,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
 
-    const {login, handleActiveUser} = useContext(ChatContext)
+    const {login, handleActiveUser, usLogged} = useContext(ChatContext)
     const navigate = useNavigate()
 
     const handleChange = (event) => {
@@ -24,15 +24,17 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault() // Controlar el recargar la página.
         setError(null)
+
+        const activeUser = usLogged().find(u => u.email === email)
         
-        const response = login({email, password}) // 'login' es una función del contexto que verifica los datos ingresados.
+        const response = login(activeUser) // 'login' es una función del contexto que verifica los datos ingresados.
         
         if (!response) {
             setError(true)
             return 
         }
         
-        handleActiveUser({email, password})
+        handleActiveUser(activeUser)
         navigate('/')
     }
 

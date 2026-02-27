@@ -128,4 +128,15 @@ const users = [
   },
 ];
 
-export { users };
+const usersLogged = [
+  {
+    id: 11,
+    firstName: "Timothee",
+    lastName: "Swift",
+    email: "timothee@gmail.com",
+    password: "pepe123",
+    image: "https://api.dicebear.com/9.x/big-smile/svg?seed=Milo"
+  }
+]
+
+export { users, usersLogged };
