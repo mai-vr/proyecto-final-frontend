@@ -27,7 +27,7 @@ const Login = () => {
 
         const activeUser = usLogged().find(u => u.email === email)
         
-        if (!activeUser) {
+        if (activeUser.password !== password || !activeUser) {
             setError(true)
             return
         }
