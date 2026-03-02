@@ -27,6 +27,11 @@ const Login = () => {
 
         const activeUser = usLogged().find(u => u.email === email)
         
+        if (!activeUser) {
+            setError(true)
+            return
+        }
+        
         const response = login(activeUser) // 'login' es una función del contexto que verifica los datos ingresados.
         
         if (!response) {
